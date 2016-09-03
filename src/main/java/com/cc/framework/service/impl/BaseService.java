@@ -13,6 +13,14 @@ import com.github.pagehelper.PageInfo;
 public abstract class BaseService<T> implements IService<T> {
 
     @Override
+	public boolean batchDel(Object[] ids) {
+    	for(Object key:ids){
+    		mapper.deleteByPrimaryKey(key);
+    	}
+    	return true;
+	}
+
+	@Override
 	public PageInfo<T> selectByPage(T t,int startRow,int pageSize) {
     	PageHelper.startPage(startRow,pageSize);
     	return new PageInfo<T>(mapper.select(t));

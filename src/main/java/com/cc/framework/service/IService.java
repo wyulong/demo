@@ -22,4 +22,5 @@ public interface IService<T> {
     
     List<T> findAll();
 
+    boolean batchDel(Object[] ids);
 }

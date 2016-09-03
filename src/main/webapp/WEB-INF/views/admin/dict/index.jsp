@@ -18,6 +18,8 @@
 <link
 	href="${pageContext.request.contextPath}/static/css/plugins/bootstrap-table/bootstrap-table.min.css"
 	rel="stylesheet">
+	 <link href="${pageContext.request.contextPath}/static/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+
 <link
 	href="${pageContext.request.contextPath}/static/css/animate.min.css"
 	rel="stylesheet">
@@ -35,7 +37,7 @@
 					<!-- <div class="alert alert-success" id="examplebtTableEventsResult"
 						role="alert">事件结果</div> -->
 					<div class="btn-group hidden-xs" id="toolbar" role="group">
-						<button type="button" class="btn btn-outline btn-default">
+						<button type="button" id="add" class="btn btn-outline btn-default">
 							<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
 						</button>
 						<button type="button" class="btn btn-outline btn-default">
@@ -70,6 +72,9 @@
 		src="${pageContext.request.contextPath}/static/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/static/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+		<script
+		src="${pageContext.request.contextPath}/static/js/ajax.js"></script>
+		 <script src="${pageContext.request.contextPath}/static/js/plugins/sweetalert/sweetalert.min.js"></script>
 	<%-- <script
 		src="${pageContext.request.contextPath}/static/js/demo/bootstrap-table-demo.min.js"></script> --%>
 	<script type="text/javascript"
@@ -92,14 +97,44 @@
 				 } else {
 				     pageData[i].status = "有效";
 				 } */
-				pageData[i].icon = "<i class='glyphicon "+pageData[i].icon+"' aria-hidden='true'></i>";
+			//	pageData[i].icon = "<i class='glyphicon "+pageData[i].icon+"' aria-hidden='true'></i>";
+				pageData[i].ops="<a class='btn btn-info btn-sm' href='${pageContext.request.contextPath}/admin/dict/index?parentId="+pageData[i].id+"' id='cancel' type='button'>查看 </a>"+
+				"<a class='btn btn-warning btn-sm' id='cancel' type='button'>编辑</a>";
+				if(pageData[i].parentId == 0){
+					pageData[i].ops+="<a class='btn btn-primary btn-sm' id='cancel' type='button' href='${pageContext.request.contextPath}/admin/dict/add?parentId="+pageData[i].id+"'>新增子项</a>";
+				}
+				
+				pageData[i].ops+="<button class='btn btn-default btn-sm' id='demo1' type='button' onclick='del("+pageData[i].id+");'>删除</button>";
 			}
 			return {
 				"total" : data.total,
 				"rows" : pageData
 			}
 		}
-
+		
+		function successfn(e){
+			if(e.code==0){
+				swal("删除成功！", e.data, "success");
+			}else{
+				swal("删除失败！", e.data, "fail");
+			}
+			$('#listTable').bootstrapTable('refresh');
+		}
+		
+		function del(id){
+			swal({
+		        title: "您确定要删除这条信息吗",
+		        text: "删除后将无法恢复，请谨慎操作！",
+		        type: "warning",
+		        showCancelButton: true,
+		        confirmButtonColor: "#DD6B55",
+		        confirmButtonText: "删除",
+		        closeOnConfirm: false
+		    }, function () {
+		    	$.axs('${pageContext.request.contextPath}/admin/dict/del?id='+id, '', successfn);
+		    });
+		}
+		
 		$(function() {
 
 			//1.初始化Table
@@ -109,7 +144,10 @@
 			//2.初始化Button的点击事件
 			var oButtonInit = new ButtonInit();
 			oButtonInit.Init();
-
+			$('#add').click(function(){
+				window.location.href="${pageContext.request.contextPath}/admin/dict/add?parentId=${parentId}";
+				return;
+			});
 		});
 
 		var TableInit = function() {
@@ -119,7 +157,7 @@
 				$('#listTable')
 						.bootstrapTable(
 								{
-									url : '${pageContext.request.contextPath}/admin/dict/list.json', //请求后台的URL（*）
+									url : '${pageContext.request.contextPath}/admin/dict/list.json?parentId=${parentId}', //请求后台的URL（*）
 									method : 'get', //请求方式（*）
 									toolbar : '#toolbar', //工具按钮用哪个容器
 									striped : true, //是否显示行间隔色
@@ -143,6 +181,7 @@
 									showToggle : true, //是否显示详细视图和列表视图的切换按钮
 									cardView : false, //是否显示详细视图
 									detailView : false, //是否显示父子表
+									responseHandler:responseHandler,
 									columns : [ {
 										checkbox : true
 									}, {
@@ -157,6 +196,9 @@
 									}, {
 										field : 'orderBy',
 										title : '排序'
+									},{
+										field : 'ops',
+										title : '操作'
 									}]
 								});
 			};

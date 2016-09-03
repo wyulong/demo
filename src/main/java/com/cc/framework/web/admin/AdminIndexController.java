@@ -16,6 +16,11 @@ public class AdminIndexController extends BaseController{
 		return new ModelAndView("admin/index");
 	}
 	
+	@RequestMapping("/login")
+	public ModelAndView login(){
+		return new ModelAndView("admin/login");
+	}
+	
 	
 	@RequestMapping("/welcome")
 	public ModelAndView welcom(){
