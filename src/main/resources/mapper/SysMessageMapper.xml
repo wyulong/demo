@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.framework.dao.SysMessageMapper">
+  <resultMap id="BaseResultMap" type="com.cc.framework.model.SysMessage">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="modify_date" jdbcType="TIMESTAMP" property="modifyDate" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="is_draft" jdbcType="BIT" property="isDraft" />
+    <result column="receiver_delete" jdbcType="BIT" property="receiverDelete" />
+    <result column="receiver_read" jdbcType="BIT" property="receiverRead" />
+    <result column="sender_delete" jdbcType="BIT" property="senderDelete" />
+    <result column="sender_read" jdbcType="BIT" property="senderRead" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="for_message" jdbcType="BIGINT" property="forMessage" />
+    <result column="receiver" jdbcType="BIGINT" property="receiver" />
+    <result column="sender" jdbcType="BIGINT" property="sender" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+</mapper>

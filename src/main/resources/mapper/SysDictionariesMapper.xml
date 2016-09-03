@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.framework.dao.SysDictionariesMapper">
+  <resultMap id="BaseResultMap" type="com.cc.framework.model.SysDictionaries">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="name_en" jdbcType="VARCHAR" property="nameEn" />
+    <result column="bianma" jdbcType="VARCHAR" property="bianma" />
+    <result column="order_by" jdbcType="INTEGER" property="orderBy" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="bz" jdbcType="VARCHAR" property="bz" />
+    <result column="tbsname" jdbcType="VARCHAR" property="tbsname" />
+  </resultMap>
+</mapper>
