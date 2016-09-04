@@ -53,6 +53,38 @@ public class SysDictionariesController extends BaseController{
 		return mv;
 	}
 	
+	@RequestMapping(value="/edit",method=RequestMethod.GET)
+	public ModelAndView edit(@RequestParam(value="parentId",required=false,defaultValue="0") Long parentId,@RequestParam(value="id",required=false,defaultValue="0") Long id){
+		ModelAndView mv = new ModelAndView("/admin/dict/edit");
+		if(id == null || id == 0){
+			msg = "记录不存在";
+			return index(parentId);
+		}
+		SysDictionaries dict = sysDictionariesService.selectByKey(id);
+		mv.addObject("dict", dict);
+		List<SysDictionaries> list = null;
+		if(parentId == null || parentId == 0){
+			list = sysDictionariesService.getChildrenByCode(0L);
+		}else{
+			list = new ArrayList<SysDictionaries>();
+			list.add(sysDictionariesService.selectByKey(parentId));
+			mv.addObject("parentId", parentId);
+		}
+		mv.addObject("list", list);
+		return mv;
+	}
+	
+	@RequestMapping(value="/edit",method=RequestMethod.POST)
+	@ResponseBody
+	public ResultMap editPost(@ModelAttribute("dict") SysDictionaries dict){
+		int i = sysDictionariesService.updateNotNull(dict);
+		if(i>0){
+			return this.success("编辑字典成功!");
+		}else{
+			return this.failure("未知错误请联系管理员！");
+		}
+	}
+	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	@ResponseBody
 	public ResultMap addPost(@ModelAttribute("dict") SysDictionaries dict){
@@ -94,8 +126,8 @@ public class SysDictionariesController extends BaseController{
 	
 	@RequestMapping("/batchdel")
 	@ResponseBody
-	public ResultMap del(@RequestParam(required=false,value="id") Long[] ids){
-		if(ids==null) return this.failure("参数不能为空");
+	public ResultMap del(@RequestParam(required=false,value="ids") Long[] ids){
+		if(ids==null || ids.length<=0) return this.failure("参数不能为空");
 		if(sysDictionariesService.batchDel(ids)){
 			return this.success("批量删除成功");
 		}

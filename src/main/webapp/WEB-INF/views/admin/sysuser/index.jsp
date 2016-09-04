@@ -30,9 +30,9 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="ibox float-e-margins">
-					<div class="ibox-title">
+					<div class="ibox-title navy-bg">
 						<h5>
-							用户管理 <small>用户查询</small>
+							 用户查询
 						</h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -60,6 +60,23 @@
 								</form>
 							</div>
 						</div>
+					</div>
+			</div>
+		</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title navy-bg">
+						<h5>
+							数据列表
+						</h5>
+						<div class="ibox-tools">
+							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="ibox-content">
 						<div class="btn-group hidden-xs" id="toolbar" role="group">
 							<button type="button" id="add"
 								class="btn btn-outline btn-default">
@@ -82,7 +99,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!-- End Panel Other -->
 	</div>

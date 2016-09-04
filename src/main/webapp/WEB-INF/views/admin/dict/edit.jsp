@@ -35,7 +35,7 @@
 				<div class="ibox float-e-margins">
 					<div class="ibox-title navy-bg">
 						<h5>
-							新增字典
+							编辑字典
 						</h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -44,6 +44,7 @@
 					</div>
 					<div class="ibox-content">
 						 <form class="form-horizontal m-t" id="commentForm" method="post">
+						 	<input type="hidden" name="id" value="${dict.id}" />
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">上级字典：</label>
                                  <div class="col-sm-8">
@@ -60,25 +61,25 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">中文名称：</label>
                                 <div class="col-sm-8">
-                                    <input id="name" type="text" class="form-control" name="name" required="true" aria-required="true">
+                                    <input id="name" type="text" class="form-control" name="name" value="${dict.name}" required="true" aria-required="true">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">英文名称：</label>
                                 <div class="col-sm-8">
-                                    <input id="nameEn" type="text" class="form-control" name="nameEn" required="true" aria-required="true">
+                                    <input id="nameEn" type="text" class="form-control" name="nameEn" value="${dict.nameEn}" required="true" aria-required="true">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">字典编码：</label>
                                 <div class="col-sm-8">
-                                    <input id="bianma" type="text" class="form-control" name="bianma" required="true" aria-required="true">
+                                    <input id="bianma" type="text" class="form-control" name="bianma" value="${dict.bianma}" required="true" aria-required="true">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">排序：</label>
                                 <div class="col-sm-8">
-                                    <input id="orderBy" type="text" value="0" class="form-control" name="orderBy" required="true" aria-required="true">
+                                    <input id="orderBy" type="text" value="0" class="form-control" name="orderBy" value="${dict.orderBy}"  required="true" aria-required="true">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -118,11 +119,11 @@
 		src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
 	<script type="text/javascript">
 		var successfn = function success(e){
-			if(e.code == 0){
-			    toastr.success("新增成功！", e.data)
-				$('#commentForm')[0].reset();
+			if(e.flag){
+			    toastr.success(e.msg, "");
+				document.reload();
 			}else{
-				toastr.error("新增失败！", e.data)
+				toastr.error(e.msg, "");
 			}
 		}
 		var errorfn = function errorfn(e){
@@ -132,7 +133,7 @@
 			$('#submit').click(function(e){
 				//$("#commentForm").submit();
 				var data = $("#commentForm").serialize();
-				$.ax("${pageContext.request.contextPath}/admin/dict/add", data, true, "POST", "json", successfn, errorfn);
+				$.ax("${pageContext.request.contextPath}/admin/dict/edit", data, true, "POST", "json", successfn, errorfn);
 			});
 			$('#cancel').click(function(){
 				window.location.href="${pageContext.request.contextPath}/admin/dict/index";

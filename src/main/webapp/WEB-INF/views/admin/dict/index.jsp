@@ -30,8 +30,18 @@
 <body class="gray-bg">
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="col-sm-12">
-			<!-- Example Events -->
-			<div class="example-wrap">
+			<div class="ibox float-e-margins">
+					<div class="ibox-title navy-bg">
+						<h5>
+							字典管理
+						</h5>
+						<div class="ibox-tools">
+							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="ibox-content">
+						<div class="example-wrap">
 				<!-- <h4 class="example-title">事件</h4> -->
 				<div class="example">
 					<!-- <div class="alert alert-success" id="examplebtTableEventsResult"
@@ -40,20 +50,22 @@
 						<button type="button" id="add" class="btn btn-outline btn-default">
 							<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
 						</button>
-						<button type="button" class="btn btn-outline btn-default">
+						<!-- <button type="button" class="btn btn-outline btn-default">
 							<i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
-						</button>
-						<button type="button" class="btn btn-outline btn-default">
+						</button> -->
+						<button type="button" id="delete" class="btn btn-outline btn-default">
 							<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
 						</button>
+						<a type="button" class="btn btn-outline btn-default" href="${pageContext.request.contextPath}/admin/dict/index?parentId=0">
+							<i class="glyphicon glyphicon-home" aria-hidden="true"></i>
+						</a>
 					</div>
 					<!-- data-response-handler="responseHandler" -->
 					<table id="listTable" data-click-to-select="true" />
-
 					</table>
 				</div>
 			</div>
-			<!-- End Example Events -->
+					</div>
 		</div>
 	</div>
 	</div>
@@ -98,8 +110,11 @@
 				     pageData[i].status = "有效";
 				 } */
 			//	pageData[i].icon = "<i class='glyphicon "+pageData[i].icon+"' aria-hidden='true'></i>";
-				pageData[i].ops="<a class='btn btn-info btn-sm' href='${pageContext.request.contextPath}/admin/dict/index?parentId="+pageData[i].id+"' id='cancel' type='button'>查看 </a>"+
-				"<a class='btn btn-warning btn-sm' id='cancel' type='button'>编辑</a>";
+				pageData[i].ops = '';
+				if(pageData[i].parentId == 0){
+					pageData[i].ops+="<a class='btn btn-info btn-sm' href='${pageContext.request.contextPath}/admin/dict/index?parentId="+pageData[i].id+"' id='cancel' type='button'>查看 </a>";
+				}
+				pageData[i].ops+="<a class='btn btn-warning btn-sm' id='cancel' type='button' href='${pageContext.request.contextPath}/admin/dict/edit?id="+pageData[i].id+"&parentId="+pageData[i].parentId+"' >编辑</a>";
 				if(pageData[i].parentId == 0){
 					pageData[i].ops+="<a class='btn btn-primary btn-sm' id='cancel' type='button' href='${pageContext.request.contextPath}/admin/dict/add?parentId="+pageData[i].id+"'>新增子项</a>";
 				}
@@ -148,6 +163,23 @@
 				window.location.href="${pageContext.request.contextPath}/admin/dict/add?parentId=${parentId}";
 				return;
 			});
+			$('#delete').click(function(){
+				var ids = new Array();
+				$.each($('#listTable').bootstrapTable('getSelections'),function(i,data){
+				    ids.push(data.id);
+				});
+				swal({
+			        title: "您确定要删除这些信息吗",
+			        text: "删除后将无法恢复，请谨慎操作！",
+			        type: "warning",
+			        showCancelButton: true,
+			        confirmButtonColor: "#DD6B55",
+			        confirmButtonText: "删除",
+			        closeOnConfirm: false
+			    }, function () {
+			    	$.axs('${pageContext.request.contextPath}/admin/dict/batchdel?ids='+ids,'', successfn);
+			    });
+			});
 		});
 
 		var TableInit = function() {
@@ -170,15 +202,15 @@
 									pageNumber : 1, //初始化加载第一页，默认第一页
 									pageSize : 10, //每页的记录行数（*）
 									pageList : [ 10, 25, 50, 100 ], //可供选择的每页的行数（*）
-									search : true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+									//search : true, //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
 									strictSearch : true,
 									showColumns : true, //是否显示所有的列
-									showRefresh : true, //是否显示刷新按钮
+								//	showRefresh : true, //是否显示刷新按钮
 									minimumCountColumns : 2, //最少允许的列数
 									clickToSelect : true, //是否启用点击选中行
 									height : 500, //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
 									uniqueId : "id", //每一行的唯一标识，一般为主键列
-									showToggle : true, //是否显示详细视图和列表视图的切换按钮
+									//showToggle : true, //是否显示详细视图和列表视图的切换按钮
 									cardView : false, //是否显示详细视图
 									detailView : false, //是否显示父子表
 									responseHandler:responseHandler,
