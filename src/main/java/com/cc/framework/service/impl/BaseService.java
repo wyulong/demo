@@ -13,7 +13,7 @@ import com.github.pagehelper.PageInfo;
 public abstract class BaseService<T> implements IService<T> {
 
     @Override
-	public boolean batchDel(Object[] ids) {
+	public boolean batchDel(Object... ids) {
     	for(Object key:ids){
     		mapper.deleteByPrimaryKey(key);
     	}
@@ -45,7 +45,7 @@ public abstract class BaseService<T> implements IService<T> {
     public int delete(Object key) {
         return mapper.deleteByPrimaryKey(key);
     }
-
+    
     public int updateAll(T entity) {
         return mapper.updateByPrimaryKey(entity);
     }

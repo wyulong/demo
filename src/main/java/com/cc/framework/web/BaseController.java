@@ -12,9 +12,12 @@ import com.github.pagehelper.PageInfo;
  * Created by cjl on 2015/10/31.
  */
 public abstract class BaseController {
+	
 	protected int page = 1;
 	protected int pageSize = 10;
-
+	
+	public static final String ERROR_VIEW = "error";
+	
    protected ResultMap success(Object object) {
        ResultMap resultMap = new ResultMap();
        resultMap.success(object);

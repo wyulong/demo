@@ -10,1025 +10,64 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2016-09-03 22:23:58
+Date: 2016-10-12 22:28:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `demo`
+-- Table structure for `sys_admin`
 -- ----------------------------
-DROP TABLE IF EXISTS `demo`;
-CREATE TABLE `demo` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `countryname` varchar(100) DEFAULT NULL,
-  `countrycode` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13002 DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `sys_admin`;
+CREATE TABLE `sys_admin` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_date` datetime NOT NULL,
+  `modify_date` datetime NOT NULL,
+  `department` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `is_enabled` bit(1) NOT NULL,
+  `is_locked` bit(1) NOT NULL,
+  `locked_date` datetime DEFAULT NULL,
+  `login_date` datetime DEFAULT NULL,
+  `login_failure_count` int(11) NOT NULL,
+  `login_ip` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of demo
+-- Records of sys_admin
 -- ----------------------------
-INSERT INTO `demo` VALUES ('12002', 'name0', 't0');
-INSERT INTO `demo` VALUES ('12003', 'name1', 't1');
-INSERT INTO `demo` VALUES ('12004', 'name2', 't2');
-INSERT INTO `demo` VALUES ('12005', 'name3', 't3');
-INSERT INTO `demo` VALUES ('12006', 'name4', 't4');
-INSERT INTO `demo` VALUES ('12007', 'name5', 't5');
-INSERT INTO `demo` VALUES ('12008', 'name6', 't6');
-INSERT INTO `demo` VALUES ('12009', 'name7', 't7');
-INSERT INTO `demo` VALUES ('12010', 'name8', 't8');
-INSERT INTO `demo` VALUES ('12011', 'name9', 't9');
-INSERT INTO `demo` VALUES ('12012', 'name10', 't10');
-INSERT INTO `demo` VALUES ('12013', 'name11', 't11');
-INSERT INTO `demo` VALUES ('12014', 'name12', 't12');
-INSERT INTO `demo` VALUES ('12015', 'name13', 't13');
-INSERT INTO `demo` VALUES ('12016', 'name14', 't14');
-INSERT INTO `demo` VALUES ('12017', 'name15', 't15');
-INSERT INTO `demo` VALUES ('12018', 'name16', 't16');
-INSERT INTO `demo` VALUES ('12019', 'name17', 't17');
-INSERT INTO `demo` VALUES ('12020', 'name18', 't18');
-INSERT INTO `demo` VALUES ('12021', 'name19', 't19');
-INSERT INTO `demo` VALUES ('12022', 'name20', 't20');
-INSERT INTO `demo` VALUES ('12023', 'name21', 't21');
-INSERT INTO `demo` VALUES ('12024', 'name22', 't22');
-INSERT INTO `demo` VALUES ('12025', 'name23', 't23');
-INSERT INTO `demo` VALUES ('12026', 'name24', 't24');
-INSERT INTO `demo` VALUES ('12027', 'name25', 't25');
-INSERT INTO `demo` VALUES ('12028', 'name26', 't26');
-INSERT INTO `demo` VALUES ('12029', 'name27', 't27');
-INSERT INTO `demo` VALUES ('12030', 'name28', 't28');
-INSERT INTO `demo` VALUES ('12031', 'name29', 't29');
-INSERT INTO `demo` VALUES ('12032', 'name30', 't30');
-INSERT INTO `demo` VALUES ('12033', 'name31', 't31');
-INSERT INTO `demo` VALUES ('12034', 'name32', 't32');
-INSERT INTO `demo` VALUES ('12035', 'name33', 't33');
-INSERT INTO `demo` VALUES ('12036', 'name34', 't34');
-INSERT INTO `demo` VALUES ('12037', 'name35', 't35');
-INSERT INTO `demo` VALUES ('12038', 'name36', 't36');
-INSERT INTO `demo` VALUES ('12039', 'name37', 't37');
-INSERT INTO `demo` VALUES ('12040', 'name38', 't38');
-INSERT INTO `demo` VALUES ('12041', 'name39', 't39');
-INSERT INTO `demo` VALUES ('12042', 'name40', 't40');
-INSERT INTO `demo` VALUES ('12043', 'name41', 't41');
-INSERT INTO `demo` VALUES ('12044', 'name42', 't42');
-INSERT INTO `demo` VALUES ('12045', 'name43', 't43');
-INSERT INTO `demo` VALUES ('12046', 'name44', 't44');
-INSERT INTO `demo` VALUES ('12047', 'name45', 't45');
-INSERT INTO `demo` VALUES ('12048', 'name46', 't46');
-INSERT INTO `demo` VALUES ('12049', 'name47', 't47');
-INSERT INTO `demo` VALUES ('12050', 'name48', 't48');
-INSERT INTO `demo` VALUES ('12051', 'name49', 't49');
-INSERT INTO `demo` VALUES ('12052', 'name50', 't50');
-INSERT INTO `demo` VALUES ('12053', 'name51', 't51');
-INSERT INTO `demo` VALUES ('12054', 'name52', 't52');
-INSERT INTO `demo` VALUES ('12055', 'name53', 't53');
-INSERT INTO `demo` VALUES ('12056', 'name54', 't54');
-INSERT INTO `demo` VALUES ('12057', 'name55', 't55');
-INSERT INTO `demo` VALUES ('12058', 'name56', 't56');
-INSERT INTO `demo` VALUES ('12059', 'name57', 't57');
-INSERT INTO `demo` VALUES ('12060', 'name58', 't58');
-INSERT INTO `demo` VALUES ('12061', 'name59', 't59');
-INSERT INTO `demo` VALUES ('12062', 'name60', 't60');
-INSERT INTO `demo` VALUES ('12063', 'name61', 't61');
-INSERT INTO `demo` VALUES ('12064', 'name62', 't62');
-INSERT INTO `demo` VALUES ('12065', 'name63', 't63');
-INSERT INTO `demo` VALUES ('12066', 'name64', 't64');
-INSERT INTO `demo` VALUES ('12067', 'name65', 't65');
-INSERT INTO `demo` VALUES ('12068', 'name66', 't66');
-INSERT INTO `demo` VALUES ('12069', 'name67', 't67');
-INSERT INTO `demo` VALUES ('12070', 'name68', 't68');
-INSERT INTO `demo` VALUES ('12071', 'name69', 't69');
-INSERT INTO `demo` VALUES ('12072', 'name70', 't70');
-INSERT INTO `demo` VALUES ('12073', 'name71', 't71');
-INSERT INTO `demo` VALUES ('12074', 'name72', 't72');
-INSERT INTO `demo` VALUES ('12075', 'name73', 't73');
-INSERT INTO `demo` VALUES ('12076', 'name74', 't74');
-INSERT INTO `demo` VALUES ('12077', 'name75', 't75');
-INSERT INTO `demo` VALUES ('12078', 'name76', 't76');
-INSERT INTO `demo` VALUES ('12079', 'name77', 't77');
-INSERT INTO `demo` VALUES ('12080', 'name78', 't78');
-INSERT INTO `demo` VALUES ('12081', 'name79', 't79');
-INSERT INTO `demo` VALUES ('12082', 'name80', 't80');
-INSERT INTO `demo` VALUES ('12083', 'name81', 't81');
-INSERT INTO `demo` VALUES ('12084', 'name82', 't82');
-INSERT INTO `demo` VALUES ('12085', 'name83', 't83');
-INSERT INTO `demo` VALUES ('12086', 'name84', 't84');
-INSERT INTO `demo` VALUES ('12087', 'name85', 't85');
-INSERT INTO `demo` VALUES ('12088', 'name86', 't86');
-INSERT INTO `demo` VALUES ('12089', 'name87', 't87');
-INSERT INTO `demo` VALUES ('12090', 'name88', 't88');
-INSERT INTO `demo` VALUES ('12091', 'name89', 't89');
-INSERT INTO `demo` VALUES ('12092', 'name90', 't90');
-INSERT INTO `demo` VALUES ('12093', 'name91', 't91');
-INSERT INTO `demo` VALUES ('12094', 'name92', 't92');
-INSERT INTO `demo` VALUES ('12095', 'name93', 't93');
-INSERT INTO `demo` VALUES ('12096', 'name94', 't94');
-INSERT INTO `demo` VALUES ('12097', 'name95', 't95');
-INSERT INTO `demo` VALUES ('12098', 'name96', 't96');
-INSERT INTO `demo` VALUES ('12099', 'name97', 't97');
-INSERT INTO `demo` VALUES ('12100', 'name98', 't98');
-INSERT INTO `demo` VALUES ('12101', 'name99', 't99');
-INSERT INTO `demo` VALUES ('12102', 'name100', 't100');
-INSERT INTO `demo` VALUES ('12103', 'name101', 't101');
-INSERT INTO `demo` VALUES ('12104', 'name102', 't102');
-INSERT INTO `demo` VALUES ('12105', 'name103', 't103');
-INSERT INTO `demo` VALUES ('12106', 'name104', 't104');
-INSERT INTO `demo` VALUES ('12107', 'name105', 't105');
-INSERT INTO `demo` VALUES ('12108', 'name106', 't106');
-INSERT INTO `demo` VALUES ('12109', 'name107', 't107');
-INSERT INTO `demo` VALUES ('12110', 'name108', 't108');
-INSERT INTO `demo` VALUES ('12111', 'name109', 't109');
-INSERT INTO `demo` VALUES ('12112', 'name110', 't110');
-INSERT INTO `demo` VALUES ('12113', 'name111', 't111');
-INSERT INTO `demo` VALUES ('12114', 'name112', 't112');
-INSERT INTO `demo` VALUES ('12115', 'name113', 't113');
-INSERT INTO `demo` VALUES ('12116', 'name114', 't114');
-INSERT INTO `demo` VALUES ('12117', 'name115', 't115');
-INSERT INTO `demo` VALUES ('12118', 'name116', 't116');
-INSERT INTO `demo` VALUES ('12119', 'name117', 't117');
-INSERT INTO `demo` VALUES ('12120', 'name118', 't118');
-INSERT INTO `demo` VALUES ('12121', 'name119', 't119');
-INSERT INTO `demo` VALUES ('12122', 'name120', 't120');
-INSERT INTO `demo` VALUES ('12123', 'name121', 't121');
-INSERT INTO `demo` VALUES ('12124', 'name122', 't122');
-INSERT INTO `demo` VALUES ('12125', 'name123', 't123');
-INSERT INTO `demo` VALUES ('12126', 'name124', 't124');
-INSERT INTO `demo` VALUES ('12127', 'name125', 't125');
-INSERT INTO `demo` VALUES ('12128', 'name126', 't126');
-INSERT INTO `demo` VALUES ('12129', 'name127', 't127');
-INSERT INTO `demo` VALUES ('12130', 'name128', 't128');
-INSERT INTO `demo` VALUES ('12131', 'name129', 't129');
-INSERT INTO `demo` VALUES ('12132', 'name130', 't130');
-INSERT INTO `demo` VALUES ('12133', 'name131', 't131');
-INSERT INTO `demo` VALUES ('12134', 'name132', 't132');
-INSERT INTO `demo` VALUES ('12135', 'name133', 't133');
-INSERT INTO `demo` VALUES ('12136', 'name134', 't134');
-INSERT INTO `demo` VALUES ('12137', 'name135', 't135');
-INSERT INTO `demo` VALUES ('12138', 'name136', 't136');
-INSERT INTO `demo` VALUES ('12139', 'name137', 't137');
-INSERT INTO `demo` VALUES ('12140', 'name138', 't138');
-INSERT INTO `demo` VALUES ('12141', 'name139', 't139');
-INSERT INTO `demo` VALUES ('12142', 'name140', 't140');
-INSERT INTO `demo` VALUES ('12143', 'name141', 't141');
-INSERT INTO `demo` VALUES ('12144', 'name142', 't142');
-INSERT INTO `demo` VALUES ('12145', 'name143', 't143');
-INSERT INTO `demo` VALUES ('12146', 'name144', 't144');
-INSERT INTO `demo` VALUES ('12147', 'name145', 't145');
-INSERT INTO `demo` VALUES ('12148', 'name146', 't146');
-INSERT INTO `demo` VALUES ('12149', 'name147', 't147');
-INSERT INTO `demo` VALUES ('12150', 'name148', 't148');
-INSERT INTO `demo` VALUES ('12151', 'name149', 't149');
-INSERT INTO `demo` VALUES ('12152', 'name150', 't150');
-INSERT INTO `demo` VALUES ('12153', 'name151', 't151');
-INSERT INTO `demo` VALUES ('12154', 'name152', 't152');
-INSERT INTO `demo` VALUES ('12155', 'name153', 't153');
-INSERT INTO `demo` VALUES ('12156', 'name154', 't154');
-INSERT INTO `demo` VALUES ('12157', 'name155', 't155');
-INSERT INTO `demo` VALUES ('12158', 'name156', 't156');
-INSERT INTO `demo` VALUES ('12159', 'name157', 't157');
-INSERT INTO `demo` VALUES ('12160', 'name158', 't158');
-INSERT INTO `demo` VALUES ('12161', 'name159', 't159');
-INSERT INTO `demo` VALUES ('12162', 'name160', 't160');
-INSERT INTO `demo` VALUES ('12163', 'name161', 't161');
-INSERT INTO `demo` VALUES ('12164', 'name162', 't162');
-INSERT INTO `demo` VALUES ('12165', 'name163', 't163');
-INSERT INTO `demo` VALUES ('12166', 'name164', 't164');
-INSERT INTO `demo` VALUES ('12167', 'name165', 't165');
-INSERT INTO `demo` VALUES ('12168', 'name166', 't166');
-INSERT INTO `demo` VALUES ('12169', 'name167', 't167');
-INSERT INTO `demo` VALUES ('12170', 'name168', 't168');
-INSERT INTO `demo` VALUES ('12171', 'name169', 't169');
-INSERT INTO `demo` VALUES ('12172', 'name170', 't170');
-INSERT INTO `demo` VALUES ('12173', 'name171', 't171');
-INSERT INTO `demo` VALUES ('12174', 'name172', 't172');
-INSERT INTO `demo` VALUES ('12175', 'name173', 't173');
-INSERT INTO `demo` VALUES ('12176', 'name174', 't174');
-INSERT INTO `demo` VALUES ('12177', 'name175', 't175');
-INSERT INTO `demo` VALUES ('12178', 'name176', 't176');
-INSERT INTO `demo` VALUES ('12179', 'name177', 't177');
-INSERT INTO `demo` VALUES ('12180', 'name178', 't178');
-INSERT INTO `demo` VALUES ('12181', 'name179', 't179');
-INSERT INTO `demo` VALUES ('12182', 'name180', 't180');
-INSERT INTO `demo` VALUES ('12183', 'name181', 't181');
-INSERT INTO `demo` VALUES ('12184', 'name182', 't182');
-INSERT INTO `demo` VALUES ('12185', 'name183', 't183');
-INSERT INTO `demo` VALUES ('12186', 'name184', 't184');
-INSERT INTO `demo` VALUES ('12187', 'name185', 't185');
-INSERT INTO `demo` VALUES ('12188', 'name186', 't186');
-INSERT INTO `demo` VALUES ('12189', 'name187', 't187');
-INSERT INTO `demo` VALUES ('12190', 'name188', 't188');
-INSERT INTO `demo` VALUES ('12191', 'name189', 't189');
-INSERT INTO `demo` VALUES ('12192', 'name190', 't190');
-INSERT INTO `demo` VALUES ('12193', 'name191', 't191');
-INSERT INTO `demo` VALUES ('12194', 'name192', 't192');
-INSERT INTO `demo` VALUES ('12195', 'name193', 't193');
-INSERT INTO `demo` VALUES ('12196', 'name194', 't194');
-INSERT INTO `demo` VALUES ('12197', 'name195', 't195');
-INSERT INTO `demo` VALUES ('12198', 'name196', 't196');
-INSERT INTO `demo` VALUES ('12199', 'name197', 't197');
-INSERT INTO `demo` VALUES ('12200', 'name198', 't198');
-INSERT INTO `demo` VALUES ('12201', 'name199', 't199');
-INSERT INTO `demo` VALUES ('12202', 'name200', 't200');
-INSERT INTO `demo` VALUES ('12203', 'name201', 't201');
-INSERT INTO `demo` VALUES ('12204', 'name202', 't202');
-INSERT INTO `demo` VALUES ('12205', 'name203', 't203');
-INSERT INTO `demo` VALUES ('12206', 'name204', 't204');
-INSERT INTO `demo` VALUES ('12207', 'name205', 't205');
-INSERT INTO `demo` VALUES ('12208', 'name206', 't206');
-INSERT INTO `demo` VALUES ('12209', 'name207', 't207');
-INSERT INTO `demo` VALUES ('12210', 'name208', 't208');
-INSERT INTO `demo` VALUES ('12211', 'name209', 't209');
-INSERT INTO `demo` VALUES ('12212', 'name210', 't210');
-INSERT INTO `demo` VALUES ('12213', 'name211', 't211');
-INSERT INTO `demo` VALUES ('12214', 'name212', 't212');
-INSERT INTO `demo` VALUES ('12215', 'name213', 't213');
-INSERT INTO `demo` VALUES ('12216', 'name214', 't214');
-INSERT INTO `demo` VALUES ('12217', 'name215', 't215');
-INSERT INTO `demo` VALUES ('12218', 'name216', 't216');
-INSERT INTO `demo` VALUES ('12219', 'name217', 't217');
-INSERT INTO `demo` VALUES ('12220', 'name218', 't218');
-INSERT INTO `demo` VALUES ('12221', 'name219', 't219');
-INSERT INTO `demo` VALUES ('12222', 'name220', 't220');
-INSERT INTO `demo` VALUES ('12223', 'name221', 't221');
-INSERT INTO `demo` VALUES ('12224', 'name222', 't222');
-INSERT INTO `demo` VALUES ('12225', 'name223', 't223');
-INSERT INTO `demo` VALUES ('12226', 'name224', 't224');
-INSERT INTO `demo` VALUES ('12227', 'name225', 't225');
-INSERT INTO `demo` VALUES ('12228', 'name226', 't226');
-INSERT INTO `demo` VALUES ('12229', 'name227', 't227');
-INSERT INTO `demo` VALUES ('12230', 'name228', 't228');
-INSERT INTO `demo` VALUES ('12231', 'name229', 't229');
-INSERT INTO `demo` VALUES ('12232', 'name230', 't230');
-INSERT INTO `demo` VALUES ('12233', 'name231', 't231');
-INSERT INTO `demo` VALUES ('12234', 'name232', 't232');
-INSERT INTO `demo` VALUES ('12235', 'name233', 't233');
-INSERT INTO `demo` VALUES ('12236', 'name234', 't234');
-INSERT INTO `demo` VALUES ('12237', 'name235', 't235');
-INSERT INTO `demo` VALUES ('12238', 'name236', 't236');
-INSERT INTO `demo` VALUES ('12239', 'name237', 't237');
-INSERT INTO `demo` VALUES ('12240', 'name238', 't238');
-INSERT INTO `demo` VALUES ('12241', 'name239', 't239');
-INSERT INTO `demo` VALUES ('12242', 'name240', 't240');
-INSERT INTO `demo` VALUES ('12243', 'name241', 't241');
-INSERT INTO `demo` VALUES ('12244', 'name242', 't242');
-INSERT INTO `demo` VALUES ('12245', 'name243', 't243');
-INSERT INTO `demo` VALUES ('12246', 'name244', 't244');
-INSERT INTO `demo` VALUES ('12247', 'name245', 't245');
-INSERT INTO `demo` VALUES ('12248', 'name246', 't246');
-INSERT INTO `demo` VALUES ('12249', 'name247', 't247');
-INSERT INTO `demo` VALUES ('12250', 'name248', 't248');
-INSERT INTO `demo` VALUES ('12251', 'name249', 't249');
-INSERT INTO `demo` VALUES ('12252', 'name250', 't250');
-INSERT INTO `demo` VALUES ('12253', 'name251', 't251');
-INSERT INTO `demo` VALUES ('12254', 'name252', 't252');
-INSERT INTO `demo` VALUES ('12255', 'name253', 't253');
-INSERT INTO `demo` VALUES ('12256', 'name254', 't254');
-INSERT INTO `demo` VALUES ('12257', 'name255', 't255');
-INSERT INTO `demo` VALUES ('12258', 'name256', 't256');
-INSERT INTO `demo` VALUES ('12259', 'name257', 't257');
-INSERT INTO `demo` VALUES ('12260', 'name258', 't258');
-INSERT INTO `demo` VALUES ('12261', 'name259', 't259');
-INSERT INTO `demo` VALUES ('12262', 'name260', 't260');
-INSERT INTO `demo` VALUES ('12263', 'name261', 't261');
-INSERT INTO `demo` VALUES ('12264', 'name262', 't262');
-INSERT INTO `demo` VALUES ('12265', 'name263', 't263');
-INSERT INTO `demo` VALUES ('12266', 'name264', 't264');
-INSERT INTO `demo` VALUES ('12267', 'name265', 't265');
-INSERT INTO `demo` VALUES ('12268', 'name266', 't266');
-INSERT INTO `demo` VALUES ('12269', 'name267', 't267');
-INSERT INTO `demo` VALUES ('12270', 'name268', 't268');
-INSERT INTO `demo` VALUES ('12271', 'name269', 't269');
-INSERT INTO `demo` VALUES ('12272', 'name270', 't270');
-INSERT INTO `demo` VALUES ('12273', 'name271', 't271');
-INSERT INTO `demo` VALUES ('12274', 'name272', 't272');
-INSERT INTO `demo` VALUES ('12275', 'name273', 't273');
-INSERT INTO `demo` VALUES ('12276', 'name274', 't274');
-INSERT INTO `demo` VALUES ('12277', 'name275', 't275');
-INSERT INTO `demo` VALUES ('12278', 'name276', 't276');
-INSERT INTO `demo` VALUES ('12279', 'name277', 't277');
-INSERT INTO `demo` VALUES ('12280', 'name278', 't278');
-INSERT INTO `demo` VALUES ('12281', 'name279', 't279');
-INSERT INTO `demo` VALUES ('12282', 'name280', 't280');
-INSERT INTO `demo` VALUES ('12283', 'name281', 't281');
-INSERT INTO `demo` VALUES ('12284', 'name282', 't282');
-INSERT INTO `demo` VALUES ('12285', 'name283', 't283');
-INSERT INTO `demo` VALUES ('12286', 'name284', 't284');
-INSERT INTO `demo` VALUES ('12287', 'name285', 't285');
-INSERT INTO `demo` VALUES ('12288', 'name286', 't286');
-INSERT INTO `demo` VALUES ('12289', 'name287', 't287');
-INSERT INTO `demo` VALUES ('12290', 'name288', 't288');
-INSERT INTO `demo` VALUES ('12291', 'name289', 't289');
-INSERT INTO `demo` VALUES ('12292', 'name290', 't290');
-INSERT INTO `demo` VALUES ('12293', 'name291', 't291');
-INSERT INTO `demo` VALUES ('12294', 'name292', 't292');
-INSERT INTO `demo` VALUES ('12295', 'name293', 't293');
-INSERT INTO `demo` VALUES ('12296', 'name294', 't294');
-INSERT INTO `demo` VALUES ('12297', 'name295', 't295');
-INSERT INTO `demo` VALUES ('12298', 'name296', 't296');
-INSERT INTO `demo` VALUES ('12299', 'name297', 't297');
-INSERT INTO `demo` VALUES ('12300', 'name298', 't298');
-INSERT INTO `demo` VALUES ('12301', 'name299', 't299');
-INSERT INTO `demo` VALUES ('12302', 'name300', 't300');
-INSERT INTO `demo` VALUES ('12303', 'name301', 't301');
-INSERT INTO `demo` VALUES ('12304', 'name302', 't302');
-INSERT INTO `demo` VALUES ('12305', 'name303', 't303');
-INSERT INTO `demo` VALUES ('12306', 'name304', 't304');
-INSERT INTO `demo` VALUES ('12307', 'name305', 't305');
-INSERT INTO `demo` VALUES ('12308', 'name306', 't306');
-INSERT INTO `demo` VALUES ('12309', 'name307', 't307');
-INSERT INTO `demo` VALUES ('12310', 'name308', 't308');
-INSERT INTO `demo` VALUES ('12311', 'name309', 't309');
-INSERT INTO `demo` VALUES ('12312', 'name310', 't310');
-INSERT INTO `demo` VALUES ('12313', 'name311', 't311');
-INSERT INTO `demo` VALUES ('12314', 'name312', 't312');
-INSERT INTO `demo` VALUES ('12315', 'name313', 't313');
-INSERT INTO `demo` VALUES ('12316', 'name314', 't314');
-INSERT INTO `demo` VALUES ('12317', 'name315', 't315');
-INSERT INTO `demo` VALUES ('12318', 'name316', 't316');
-INSERT INTO `demo` VALUES ('12319', 'name317', 't317');
-INSERT INTO `demo` VALUES ('12320', 'name318', 't318');
-INSERT INTO `demo` VALUES ('12321', 'name319', 't319');
-INSERT INTO `demo` VALUES ('12322', 'name320', 't320');
-INSERT INTO `demo` VALUES ('12323', 'name321', 't321');
-INSERT INTO `demo` VALUES ('12324', 'name322', 't322');
-INSERT INTO `demo` VALUES ('12325', 'name323', 't323');
-INSERT INTO `demo` VALUES ('12326', 'name324', 't324');
-INSERT INTO `demo` VALUES ('12327', 'name325', 't325');
-INSERT INTO `demo` VALUES ('12328', 'name326', 't326');
-INSERT INTO `demo` VALUES ('12329', 'name327', 't327');
-INSERT INTO `demo` VALUES ('12330', 'name328', 't328');
-INSERT INTO `demo` VALUES ('12331', 'name329', 't329');
-INSERT INTO `demo` VALUES ('12332', 'name330', 't330');
-INSERT INTO `demo` VALUES ('12333', 'name331', 't331');
-INSERT INTO `demo` VALUES ('12334', 'name332', 't332');
-INSERT INTO `demo` VALUES ('12335', 'name333', 't333');
-INSERT INTO `demo` VALUES ('12336', 'name334', 't334');
-INSERT INTO `demo` VALUES ('12337', 'name335', 't335');
-INSERT INTO `demo` VALUES ('12338', 'name336', 't336');
-INSERT INTO `demo` VALUES ('12339', 'name337', 't337');
-INSERT INTO `demo` VALUES ('12340', 'name338', 't338');
-INSERT INTO `demo` VALUES ('12341', 'name339', 't339');
-INSERT INTO `demo` VALUES ('12342', 'name340', 't340');
-INSERT INTO `demo` VALUES ('12343', 'name341', 't341');
-INSERT INTO `demo` VALUES ('12344', 'name342', 't342');
-INSERT INTO `demo` VALUES ('12345', 'name343', 't343');
-INSERT INTO `demo` VALUES ('12346', 'name344', 't344');
-INSERT INTO `demo` VALUES ('12347', 'name345', 't345');
-INSERT INTO `demo` VALUES ('12348', 'name346', 't346');
-INSERT INTO `demo` VALUES ('12349', 'name347', 't347');
-INSERT INTO `demo` VALUES ('12350', 'name348', 't348');
-INSERT INTO `demo` VALUES ('12351', 'name349', 't349');
-INSERT INTO `demo` VALUES ('12352', 'name350', 't350');
-INSERT INTO `demo` VALUES ('12353', 'name351', 't351');
-INSERT INTO `demo` VALUES ('12354', 'name352', 't352');
-INSERT INTO `demo` VALUES ('12355', 'name353', 't353');
-INSERT INTO `demo` VALUES ('12356', 'name354', 't354');
-INSERT INTO `demo` VALUES ('12357', 'name355', 't355');
-INSERT INTO `demo` VALUES ('12358', 'name356', 't356');
-INSERT INTO `demo` VALUES ('12359', 'name357', 't357');
-INSERT INTO `demo` VALUES ('12360', 'name358', 't358');
-INSERT INTO `demo` VALUES ('12361', 'name359', 't359');
-INSERT INTO `demo` VALUES ('12362', 'name360', 't360');
-INSERT INTO `demo` VALUES ('12363', 'name361', 't361');
-INSERT INTO `demo` VALUES ('12364', 'name362', 't362');
-INSERT INTO `demo` VALUES ('12365', 'name363', 't363');
-INSERT INTO `demo` VALUES ('12366', 'name364', 't364');
-INSERT INTO `demo` VALUES ('12367', 'name365', 't365');
-INSERT INTO `demo` VALUES ('12368', 'name366', 't366');
-INSERT INTO `demo` VALUES ('12369', 'name367', 't367');
-INSERT INTO `demo` VALUES ('12370', 'name368', 't368');
-INSERT INTO `demo` VALUES ('12371', 'name369', 't369');
-INSERT INTO `demo` VALUES ('12372', 'name370', 't370');
-INSERT INTO `demo` VALUES ('12373', 'name371', 't371');
-INSERT INTO `demo` VALUES ('12374', 'name372', 't372');
-INSERT INTO `demo` VALUES ('12375', 'name373', 't373');
-INSERT INTO `demo` VALUES ('12376', 'name374', 't374');
-INSERT INTO `demo` VALUES ('12377', 'name375', 't375');
-INSERT INTO `demo` VALUES ('12378', 'name376', 't376');
-INSERT INTO `demo` VALUES ('12379', 'name377', 't377');
-INSERT INTO `demo` VALUES ('12380', 'name378', 't378');
-INSERT INTO `demo` VALUES ('12381', 'name379', 't379');
-INSERT INTO `demo` VALUES ('12382', 'name380', 't380');
-INSERT INTO `demo` VALUES ('12383', 'name381', 't381');
-INSERT INTO `demo` VALUES ('12384', 'name382', 't382');
-INSERT INTO `demo` VALUES ('12385', 'name383', 't383');
-INSERT INTO `demo` VALUES ('12386', 'name384', 't384');
-INSERT INTO `demo` VALUES ('12387', 'name385', 't385');
-INSERT INTO `demo` VALUES ('12388', 'name386', 't386');
-INSERT INTO `demo` VALUES ('12389', 'name387', 't387');
-INSERT INTO `demo` VALUES ('12390', 'name388', 't388');
-INSERT INTO `demo` VALUES ('12391', 'name389', 't389');
-INSERT INTO `demo` VALUES ('12392', 'name390', 't390');
-INSERT INTO `demo` VALUES ('12393', 'name391', 't391');
-INSERT INTO `demo` VALUES ('12394', 'name392', 't392');
-INSERT INTO `demo` VALUES ('12395', 'name393', 't393');
-INSERT INTO `demo` VALUES ('12396', 'name394', 't394');
-INSERT INTO `demo` VALUES ('12397', 'name395', 't395');
-INSERT INTO `demo` VALUES ('12398', 'name396', 't396');
-INSERT INTO `demo` VALUES ('12399', 'name397', 't397');
-INSERT INTO `demo` VALUES ('12400', 'name398', 't398');
-INSERT INTO `demo` VALUES ('12401', 'name399', 't399');
-INSERT INTO `demo` VALUES ('12402', 'name400', 't400');
-INSERT INTO `demo` VALUES ('12403', 'name401', 't401');
-INSERT INTO `demo` VALUES ('12404', 'name402', 't402');
-INSERT INTO `demo` VALUES ('12405', 'name403', 't403');
-INSERT INTO `demo` VALUES ('12406', 'name404', 't404');
-INSERT INTO `demo` VALUES ('12407', 'name405', 't405');
-INSERT INTO `demo` VALUES ('12408', 'name406', 't406');
-INSERT INTO `demo` VALUES ('12409', 'name407', 't407');
-INSERT INTO `demo` VALUES ('12410', 'name408', 't408');
-INSERT INTO `demo` VALUES ('12411', 'name409', 't409');
-INSERT INTO `demo` VALUES ('12412', 'name410', 't410');
-INSERT INTO `demo` VALUES ('12413', 'name411', 't411');
-INSERT INTO `demo` VALUES ('12414', 'name412', 't412');
-INSERT INTO `demo` VALUES ('12415', 'name413', 't413');
-INSERT INTO `demo` VALUES ('12416', 'name414', 't414');
-INSERT INTO `demo` VALUES ('12417', 'name415', 't415');
-INSERT INTO `demo` VALUES ('12418', 'name416', 't416');
-INSERT INTO `demo` VALUES ('12419', 'name417', 't417');
-INSERT INTO `demo` VALUES ('12420', 'name418', 't418');
-INSERT INTO `demo` VALUES ('12421', 'name419', 't419');
-INSERT INTO `demo` VALUES ('12422', 'name420', 't420');
-INSERT INTO `demo` VALUES ('12423', 'name421', 't421');
-INSERT INTO `demo` VALUES ('12424', 'name422', 't422');
-INSERT INTO `demo` VALUES ('12425', 'name423', 't423');
-INSERT INTO `demo` VALUES ('12426', 'name424', 't424');
-INSERT INTO `demo` VALUES ('12427', 'name425', 't425');
-INSERT INTO `demo` VALUES ('12428', 'name426', 't426');
-INSERT INTO `demo` VALUES ('12429', 'name427', 't427');
-INSERT INTO `demo` VALUES ('12430', 'name428', 't428');
-INSERT INTO `demo` VALUES ('12431', 'name429', 't429');
-INSERT INTO `demo` VALUES ('12432', 'name430', 't430');
-INSERT INTO `demo` VALUES ('12433', 'name431', 't431');
-INSERT INTO `demo` VALUES ('12434', 'name432', 't432');
-INSERT INTO `demo` VALUES ('12435', 'name433', 't433');
-INSERT INTO `demo` VALUES ('12436', 'name434', 't434');
-INSERT INTO `demo` VALUES ('12437', 'name435', 't435');
-INSERT INTO `demo` VALUES ('12438', 'name436', 't436');
-INSERT INTO `demo` VALUES ('12439', 'name437', 't437');
-INSERT INTO `demo` VALUES ('12440', 'name438', 't438');
-INSERT INTO `demo` VALUES ('12441', 'name439', 't439');
-INSERT INTO `demo` VALUES ('12442', 'name440', 't440');
-INSERT INTO `demo` VALUES ('12443', 'name441', 't441');
-INSERT INTO `demo` VALUES ('12444', 'name442', 't442');
-INSERT INTO `demo` VALUES ('12445', 'name443', 't443');
-INSERT INTO `demo` VALUES ('12446', 'name444', 't444');
-INSERT INTO `demo` VALUES ('12447', 'name445', 't445');
-INSERT INTO `demo` VALUES ('12448', 'name446', 't446');
-INSERT INTO `demo` VALUES ('12449', 'name447', 't447');
-INSERT INTO `demo` VALUES ('12450', 'name448', 't448');
-INSERT INTO `demo` VALUES ('12451', 'name449', 't449');
-INSERT INTO `demo` VALUES ('12452', 'name450', 't450');
-INSERT INTO `demo` VALUES ('12453', 'name451', 't451');
-INSERT INTO `demo` VALUES ('12454', 'name452', 't452');
-INSERT INTO `demo` VALUES ('12455', 'name453', 't453');
-INSERT INTO `demo` VALUES ('12456', 'name454', 't454');
-INSERT INTO `demo` VALUES ('12457', 'name455', 't455');
-INSERT INTO `demo` VALUES ('12458', 'name456', 't456');
-INSERT INTO `demo` VALUES ('12459', 'name457', 't457');
-INSERT INTO `demo` VALUES ('12460', 'name458', 't458');
-INSERT INTO `demo` VALUES ('12461', 'name459', 't459');
-INSERT INTO `demo` VALUES ('12462', 'name460', 't460');
-INSERT INTO `demo` VALUES ('12463', 'name461', 't461');
-INSERT INTO `demo` VALUES ('12464', 'name462', 't462');
-INSERT INTO `demo` VALUES ('12465', 'name463', 't463');
-INSERT INTO `demo` VALUES ('12466', 'name464', 't464');
-INSERT INTO `demo` VALUES ('12467', 'name465', 't465');
-INSERT INTO `demo` VALUES ('12468', 'name466', 't466');
-INSERT INTO `demo` VALUES ('12469', 'name467', 't467');
-INSERT INTO `demo` VALUES ('12470', 'name468', 't468');
-INSERT INTO `demo` VALUES ('12471', 'name469', 't469');
-INSERT INTO `demo` VALUES ('12472', 'name470', 't470');
-INSERT INTO `demo` VALUES ('12473', 'name471', 't471');
-INSERT INTO `demo` VALUES ('12474', 'name472', 't472');
-INSERT INTO `demo` VALUES ('12475', 'name473', 't473');
-INSERT INTO `demo` VALUES ('12476', 'name474', 't474');
-INSERT INTO `demo` VALUES ('12477', 'name475', 't475');
-INSERT INTO `demo` VALUES ('12478', 'name476', 't476');
-INSERT INTO `demo` VALUES ('12479', 'name477', 't477');
-INSERT INTO `demo` VALUES ('12480', 'name478', 't478');
-INSERT INTO `demo` VALUES ('12481', 'name479', 't479');
-INSERT INTO `demo` VALUES ('12482', 'name480', 't480');
-INSERT INTO `demo` VALUES ('12483', 'name481', 't481');
-INSERT INTO `demo` VALUES ('12484', 'name482', 't482');
-INSERT INTO `demo` VALUES ('12485', 'name483', 't483');
-INSERT INTO `demo` VALUES ('12486', 'name484', 't484');
-INSERT INTO `demo` VALUES ('12487', 'name485', 't485');
-INSERT INTO `demo` VALUES ('12488', 'name486', 't486');
-INSERT INTO `demo` VALUES ('12489', 'name487', 't487');
-INSERT INTO `demo` VALUES ('12490', 'name488', 't488');
-INSERT INTO `demo` VALUES ('12491', 'name489', 't489');
-INSERT INTO `demo` VALUES ('12492', 'name490', 't490');
-INSERT INTO `demo` VALUES ('12493', 'name491', 't491');
-INSERT INTO `demo` VALUES ('12494', 'name492', 't492');
-INSERT INTO `demo` VALUES ('12495', 'name493', 't493');
-INSERT INTO `demo` VALUES ('12496', 'name494', 't494');
-INSERT INTO `demo` VALUES ('12497', 'name495', 't495');
-INSERT INTO `demo` VALUES ('12498', 'name496', 't496');
-INSERT INTO `demo` VALUES ('12499', 'name497', 't497');
-INSERT INTO `demo` VALUES ('12500', 'name498', 't498');
-INSERT INTO `demo` VALUES ('12501', 'name499', 't499');
-INSERT INTO `demo` VALUES ('12502', 'name500', 't500');
-INSERT INTO `demo` VALUES ('12503', 'name501', 't501');
-INSERT INTO `demo` VALUES ('12504', 'name502', 't502');
-INSERT INTO `demo` VALUES ('12505', 'name503', 't503');
-INSERT INTO `demo` VALUES ('12506', 'name504', 't504');
-INSERT INTO `demo` VALUES ('12507', 'name505', 't505');
-INSERT INTO `demo` VALUES ('12508', 'name506', 't506');
-INSERT INTO `demo` VALUES ('12509', 'name507', 't507');
-INSERT INTO `demo` VALUES ('12510', 'name508', 't508');
-INSERT INTO `demo` VALUES ('12511', 'name509', 't509');
-INSERT INTO `demo` VALUES ('12512', 'name510', 't510');
-INSERT INTO `demo` VALUES ('12513', 'name511', 't511');
-INSERT INTO `demo` VALUES ('12514', 'name512', 't512');
-INSERT INTO `demo` VALUES ('12515', 'name513', 't513');
-INSERT INTO `demo` VALUES ('12516', 'name514', 't514');
-INSERT INTO `demo` VALUES ('12517', 'name515', 't515');
-INSERT INTO `demo` VALUES ('12518', 'name516', 't516');
-INSERT INTO `demo` VALUES ('12519', 'name517', 't517');
-INSERT INTO `demo` VALUES ('12520', 'name518', 't518');
-INSERT INTO `demo` VALUES ('12521', 'name519', 't519');
-INSERT INTO `demo` VALUES ('12522', 'name520', 't520');
-INSERT INTO `demo` VALUES ('12523', 'name521', 't521');
-INSERT INTO `demo` VALUES ('12524', 'name522', 't522');
-INSERT INTO `demo` VALUES ('12525', 'name523', 't523');
-INSERT INTO `demo` VALUES ('12526', 'name524', 't524');
-INSERT INTO `demo` VALUES ('12527', 'name525', 't525');
-INSERT INTO `demo` VALUES ('12528', 'name526', 't526');
-INSERT INTO `demo` VALUES ('12529', 'name527', 't527');
-INSERT INTO `demo` VALUES ('12530', 'name528', 't528');
-INSERT INTO `demo` VALUES ('12531', 'name529', 't529');
-INSERT INTO `demo` VALUES ('12532', 'name530', 't530');
-INSERT INTO `demo` VALUES ('12533', 'name531', 't531');
-INSERT INTO `demo` VALUES ('12534', 'name532', 't532');
-INSERT INTO `demo` VALUES ('12535', 'name533', 't533');
-INSERT INTO `demo` VALUES ('12536', 'name534', 't534');
-INSERT INTO `demo` VALUES ('12537', 'name535', 't535');
-INSERT INTO `demo` VALUES ('12538', 'name536', 't536');
-INSERT INTO `demo` VALUES ('12539', 'name537', 't537');
-INSERT INTO `demo` VALUES ('12540', 'name538', 't538');
-INSERT INTO `demo` VALUES ('12541', 'name539', 't539');
-INSERT INTO `demo` VALUES ('12542', 'name540', 't540');
-INSERT INTO `demo` VALUES ('12543', 'name541', 't541');
-INSERT INTO `demo` VALUES ('12544', 'name542', 't542');
-INSERT INTO `demo` VALUES ('12545', 'name543', 't543');
-INSERT INTO `demo` VALUES ('12546', 'name544', 't544');
-INSERT INTO `demo` VALUES ('12547', 'name545', 't545');
-INSERT INTO `demo` VALUES ('12548', 'name546', 't546');
-INSERT INTO `demo` VALUES ('12549', 'name547', 't547');
-INSERT INTO `demo` VALUES ('12550', 'name548', 't548');
-INSERT INTO `demo` VALUES ('12551', 'name549', 't549');
-INSERT INTO `demo` VALUES ('12552', 'name550', 't550');
-INSERT INTO `demo` VALUES ('12553', 'name551', 't551');
-INSERT INTO `demo` VALUES ('12554', 'name552', 't552');
-INSERT INTO `demo` VALUES ('12555', 'name553', 't553');
-INSERT INTO `demo` VALUES ('12556', 'name554', 't554');
-INSERT INTO `demo` VALUES ('12557', 'name555', 't555');
-INSERT INTO `demo` VALUES ('12558', 'name556', 't556');
-INSERT INTO `demo` VALUES ('12559', 'name557', 't557');
-INSERT INTO `demo` VALUES ('12560', 'name558', 't558');
-INSERT INTO `demo` VALUES ('12561', 'name559', 't559');
-INSERT INTO `demo` VALUES ('12562', 'name560', 't560');
-INSERT INTO `demo` VALUES ('12563', 'name561', 't561');
-INSERT INTO `demo` VALUES ('12564', 'name562', 't562');
-INSERT INTO `demo` VALUES ('12565', 'name563', 't563');
-INSERT INTO `demo` VALUES ('12566', 'name564', 't564');
-INSERT INTO `demo` VALUES ('12567', 'name565', 't565');
-INSERT INTO `demo` VALUES ('12568', 'name566', 't566');
-INSERT INTO `demo` VALUES ('12569', 'name567', 't567');
-INSERT INTO `demo` VALUES ('12570', 'name568', 't568');
-INSERT INTO `demo` VALUES ('12571', 'name569', 't569');
-INSERT INTO `demo` VALUES ('12572', 'name570', 't570');
-INSERT INTO `demo` VALUES ('12573', 'name571', 't571');
-INSERT INTO `demo` VALUES ('12574', 'name572', 't572');
-INSERT INTO `demo` VALUES ('12575', 'name573', 't573');
-INSERT INTO `demo` VALUES ('12576', 'name574', 't574');
-INSERT INTO `demo` VALUES ('12577', 'name575', 't575');
-INSERT INTO `demo` VALUES ('12578', 'name576', 't576');
-INSERT INTO `demo` VALUES ('12579', 'name577', 't577');
-INSERT INTO `demo` VALUES ('12580', 'name578', 't578');
-INSERT INTO `demo` VALUES ('12581', 'name579', 't579');
-INSERT INTO `demo` VALUES ('12582', 'name580', 't580');
-INSERT INTO `demo` VALUES ('12583', 'name581', 't581');
-INSERT INTO `demo` VALUES ('12584', 'name582', 't582');
-INSERT INTO `demo` VALUES ('12585', 'name583', 't583');
-INSERT INTO `demo` VALUES ('12586', 'name584', 't584');
-INSERT INTO `demo` VALUES ('12587', 'name585', 't585');
-INSERT INTO `demo` VALUES ('12588', 'name586', 't586');
-INSERT INTO `demo` VALUES ('12589', 'name587', 't587');
-INSERT INTO `demo` VALUES ('12590', 'name588', 't588');
-INSERT INTO `demo` VALUES ('12591', 'name589', 't589');
-INSERT INTO `demo` VALUES ('12592', 'name590', 't590');
-INSERT INTO `demo` VALUES ('12593', 'name591', 't591');
-INSERT INTO `demo` VALUES ('12594', 'name592', 't592');
-INSERT INTO `demo` VALUES ('12595', 'name593', 't593');
-INSERT INTO `demo` VALUES ('12596', 'name594', 't594');
-INSERT INTO `demo` VALUES ('12597', 'name595', 't595');
-INSERT INTO `demo` VALUES ('12598', 'name596', 't596');
-INSERT INTO `demo` VALUES ('12599', 'name597', 't597');
-INSERT INTO `demo` VALUES ('12600', 'name598', 't598');
-INSERT INTO `demo` VALUES ('12601', 'name599', 't599');
-INSERT INTO `demo` VALUES ('12602', 'name600', 't600');
-INSERT INTO `demo` VALUES ('12603', 'name601', 't601');
-INSERT INTO `demo` VALUES ('12604', 'name602', 't602');
-INSERT INTO `demo` VALUES ('12605', 'name603', 't603');
-INSERT INTO `demo` VALUES ('12606', 'name604', 't604');
-INSERT INTO `demo` VALUES ('12607', 'name605', 't605');
-INSERT INTO `demo` VALUES ('12608', 'name606', 't606');
-INSERT INTO `demo` VALUES ('12609', 'name607', 't607');
-INSERT INTO `demo` VALUES ('12610', 'name608', 't608');
-INSERT INTO `demo` VALUES ('12611', 'name609', 't609');
-INSERT INTO `demo` VALUES ('12612', 'name610', 't610');
-INSERT INTO `demo` VALUES ('12613', 'name611', 't611');
-INSERT INTO `demo` VALUES ('12614', 'name612', 't612');
-INSERT INTO `demo` VALUES ('12615', 'name613', 't613');
-INSERT INTO `demo` VALUES ('12616', 'name614', 't614');
-INSERT INTO `demo` VALUES ('12617', 'name615', 't615');
-INSERT INTO `demo` VALUES ('12618', 'name616', 't616');
-INSERT INTO `demo` VALUES ('12619', 'name617', 't617');
-INSERT INTO `demo` VALUES ('12620', 'name618', 't618');
-INSERT INTO `demo` VALUES ('12621', 'name619', 't619');
-INSERT INTO `demo` VALUES ('12622', 'name620', 't620');
-INSERT INTO `demo` VALUES ('12623', 'name621', 't621');
-INSERT INTO `demo` VALUES ('12624', 'name622', 't622');
-INSERT INTO `demo` VALUES ('12625', 'name623', 't623');
-INSERT INTO `demo` VALUES ('12626', 'name624', 't624');
-INSERT INTO `demo` VALUES ('12627', 'name625', 't625');
-INSERT INTO `demo` VALUES ('12628', 'name626', 't626');
-INSERT INTO `demo` VALUES ('12629', 'name627', 't627');
-INSERT INTO `demo` VALUES ('12630', 'name628', 't628');
-INSERT INTO `demo` VALUES ('12631', 'name629', 't629');
-INSERT INTO `demo` VALUES ('12632', 'name630', 't630');
-INSERT INTO `demo` VALUES ('12633', 'name631', 't631');
-INSERT INTO `demo` VALUES ('12634', 'name632', 't632');
-INSERT INTO `demo` VALUES ('12635', 'name633', 't633');
-INSERT INTO `demo` VALUES ('12636', 'name634', 't634');
-INSERT INTO `demo` VALUES ('12637', 'name635', 't635');
-INSERT INTO `demo` VALUES ('12638', 'name636', 't636');
-INSERT INTO `demo` VALUES ('12639', 'name637', 't637');
-INSERT INTO `demo` VALUES ('12640', 'name638', 't638');
-INSERT INTO `demo` VALUES ('12641', 'name639', 't639');
-INSERT INTO `demo` VALUES ('12642', 'name640', 't640');
-INSERT INTO `demo` VALUES ('12643', 'name641', 't641');
-INSERT INTO `demo` VALUES ('12644', 'name642', 't642');
-INSERT INTO `demo` VALUES ('12645', 'name643', 't643');
-INSERT INTO `demo` VALUES ('12646', 'name644', 't644');
-INSERT INTO `demo` VALUES ('12647', 'name645', 't645');
-INSERT INTO `demo` VALUES ('12648', 'name646', 't646');
-INSERT INTO `demo` VALUES ('12649', 'name647', 't647');
-INSERT INTO `demo` VALUES ('12650', 'name648', 't648');
-INSERT INTO `demo` VALUES ('12651', 'name649', 't649');
-INSERT INTO `demo` VALUES ('12652', 'name650', 't650');
-INSERT INTO `demo` VALUES ('12653', 'name651', 't651');
-INSERT INTO `demo` VALUES ('12654', 'name652', 't652');
-INSERT INTO `demo` VALUES ('12655', 'name653', 't653');
-INSERT INTO `demo` VALUES ('12656', 'name654', 't654');
-INSERT INTO `demo` VALUES ('12657', 'name655', 't655');
-INSERT INTO `demo` VALUES ('12658', 'name656', 't656');
-INSERT INTO `demo` VALUES ('12659', 'name657', 't657');
-INSERT INTO `demo` VALUES ('12660', 'name658', 't658');
-INSERT INTO `demo` VALUES ('12661', 'name659', 't659');
-INSERT INTO `demo` VALUES ('12662', 'name660', 't660');
-INSERT INTO `demo` VALUES ('12663', 'name661', 't661');
-INSERT INTO `demo` VALUES ('12664', 'name662', 't662');
-INSERT INTO `demo` VALUES ('12665', 'name663', 't663');
-INSERT INTO `demo` VALUES ('12666', 'name664', 't664');
-INSERT INTO `demo` VALUES ('12667', 'name665', 't665');
-INSERT INTO `demo` VALUES ('12668', 'name666', 't666');
-INSERT INTO `demo` VALUES ('12669', 'name667', 't667');
-INSERT INTO `demo` VALUES ('12670', 'name668', 't668');
-INSERT INTO `demo` VALUES ('12671', 'name669', 't669');
-INSERT INTO `demo` VALUES ('12672', 'name670', 't670');
-INSERT INTO `demo` VALUES ('12673', 'name671', 't671');
-INSERT INTO `demo` VALUES ('12674', 'name672', 't672');
-INSERT INTO `demo` VALUES ('12675', 'name673', 't673');
-INSERT INTO `demo` VALUES ('12676', 'name674', 't674');
-INSERT INTO `demo` VALUES ('12677', 'name675', 't675');
-INSERT INTO `demo` VALUES ('12678', 'name676', 't676');
-INSERT INTO `demo` VALUES ('12679', 'name677', 't677');
-INSERT INTO `demo` VALUES ('12680', 'name678', 't678');
-INSERT INTO `demo` VALUES ('12681', 'name679', 't679');
-INSERT INTO `demo` VALUES ('12682', 'name680', 't680');
-INSERT INTO `demo` VALUES ('12683', 'name681', 't681');
-INSERT INTO `demo` VALUES ('12684', 'name682', 't682');
-INSERT INTO `demo` VALUES ('12685', 'name683', 't683');
-INSERT INTO `demo` VALUES ('12686', 'name684', 't684');
-INSERT INTO `demo` VALUES ('12687', 'name685', 't685');
-INSERT INTO `demo` VALUES ('12688', 'name686', 't686');
-INSERT INTO `demo` VALUES ('12689', 'name687', 't687');
-INSERT INTO `demo` VALUES ('12690', 'name688', 't688');
-INSERT INTO `demo` VALUES ('12691', 'name689', 't689');
-INSERT INTO `demo` VALUES ('12692', 'name690', 't690');
-INSERT INTO `demo` VALUES ('12693', 'name691', 't691');
-INSERT INTO `demo` VALUES ('12694', 'name692', 't692');
-INSERT INTO `demo` VALUES ('12695', 'name693', 't693');
-INSERT INTO `demo` VALUES ('12696', 'name694', 't694');
-INSERT INTO `demo` VALUES ('12697', 'name695', 't695');
-INSERT INTO `demo` VALUES ('12698', 'name696', 't696');
-INSERT INTO `demo` VALUES ('12699', 'name697', 't697');
-INSERT INTO `demo` VALUES ('12700', 'name698', 't698');
-INSERT INTO `demo` VALUES ('12701', 'name699', 't699');
-INSERT INTO `demo` VALUES ('12702', 'name700', 't700');
-INSERT INTO `demo` VALUES ('12703', 'name701', 't701');
-INSERT INTO `demo` VALUES ('12704', 'name702', 't702');
-INSERT INTO `demo` VALUES ('12705', 'name703', 't703');
-INSERT INTO `demo` VALUES ('12706', 'name704', 't704');
-INSERT INTO `demo` VALUES ('12707', 'name705', 't705');
-INSERT INTO `demo` VALUES ('12708', 'name706', 't706');
-INSERT INTO `demo` VALUES ('12709', 'name707', 't707');
-INSERT INTO `demo` VALUES ('12710', 'name708', 't708');
-INSERT INTO `demo` VALUES ('12711', 'name709', 't709');
-INSERT INTO `demo` VALUES ('12712', 'name710', 't710');
-INSERT INTO `demo` VALUES ('12713', 'name711', 't711');
-INSERT INTO `demo` VALUES ('12714', 'name712', 't712');
-INSERT INTO `demo` VALUES ('12715', 'name713', 't713');
-INSERT INTO `demo` VALUES ('12716', 'name714', 't714');
-INSERT INTO `demo` VALUES ('12717', 'name715', 't715');
-INSERT INTO `demo` VALUES ('12718', 'name716', 't716');
-INSERT INTO `demo` VALUES ('12719', 'name717', 't717');
-INSERT INTO `demo` VALUES ('12720', 'name718', 't718');
-INSERT INTO `demo` VALUES ('12721', 'name719', 't719');
-INSERT INTO `demo` VALUES ('12722', 'name720', 't720');
-INSERT INTO `demo` VALUES ('12723', 'name721', 't721');
-INSERT INTO `demo` VALUES ('12724', 'name722', 't722');
-INSERT INTO `demo` VALUES ('12725', 'name723', 't723');
-INSERT INTO `demo` VALUES ('12726', 'name724', 't724');
-INSERT INTO `demo` VALUES ('12727', 'name725', 't725');
-INSERT INTO `demo` VALUES ('12728', 'name726', 't726');
-INSERT INTO `demo` VALUES ('12729', 'name727', 't727');
-INSERT INTO `demo` VALUES ('12730', 'name728', 't728');
-INSERT INTO `demo` VALUES ('12731', 'name729', 't729');
-INSERT INTO `demo` VALUES ('12732', 'name730', 't730');
-INSERT INTO `demo` VALUES ('12733', 'name731', 't731');
-INSERT INTO `demo` VALUES ('12734', 'name732', 't732');
-INSERT INTO `demo` VALUES ('12735', 'name733', 't733');
-INSERT INTO `demo` VALUES ('12736', 'name734', 't734');
-INSERT INTO `demo` VALUES ('12737', 'name735', 't735');
-INSERT INTO `demo` VALUES ('12738', 'name736', 't736');
-INSERT INTO `demo` VALUES ('12739', 'name737', 't737');
-INSERT INTO `demo` VALUES ('12740', 'name738', 't738');
-INSERT INTO `demo` VALUES ('12741', 'name739', 't739');
-INSERT INTO `demo` VALUES ('12742', 'name740', 't740');
-INSERT INTO `demo` VALUES ('12743', 'name741', 't741');
-INSERT INTO `demo` VALUES ('12744', 'name742', 't742');
-INSERT INTO `demo` VALUES ('12745', 'name743', 't743');
-INSERT INTO `demo` VALUES ('12746', 'name744', 't744');
-INSERT INTO `demo` VALUES ('12747', 'name745', 't745');
-INSERT INTO `demo` VALUES ('12748', 'name746', 't746');
-INSERT INTO `demo` VALUES ('12749', 'name747', 't747');
-INSERT INTO `demo` VALUES ('12750', 'name748', 't748');
-INSERT INTO `demo` VALUES ('12751', 'name749', 't749');
-INSERT INTO `demo` VALUES ('12752', 'name750', 't750');
-INSERT INTO `demo` VALUES ('12753', 'name751', 't751');
-INSERT INTO `demo` VALUES ('12754', 'name752', 't752');
-INSERT INTO `demo` VALUES ('12755', 'name753', 't753');
-INSERT INTO `demo` VALUES ('12756', 'name754', 't754');
-INSERT INTO `demo` VALUES ('12757', 'name755', 't755');
-INSERT INTO `demo` VALUES ('12758', 'name756', 't756');
-INSERT INTO `demo` VALUES ('12759', 'name757', 't757');
-INSERT INTO `demo` VALUES ('12760', 'name758', 't758');
-INSERT INTO `demo` VALUES ('12761', 'name759', 't759');
-INSERT INTO `demo` VALUES ('12762', 'name760', 't760');
-INSERT INTO `demo` VALUES ('12763', 'name761', 't761');
-INSERT INTO `demo` VALUES ('12764', 'name762', 't762');
-INSERT INTO `demo` VALUES ('12765', 'name763', 't763');
-INSERT INTO `demo` VALUES ('12766', 'name764', 't764');
-INSERT INTO `demo` VALUES ('12767', 'name765', 't765');
-INSERT INTO `demo` VALUES ('12768', 'name766', 't766');
-INSERT INTO `demo` VALUES ('12769', 'name767', 't767');
-INSERT INTO `demo` VALUES ('12770', 'name768', 't768');
-INSERT INTO `demo` VALUES ('12771', 'name769', 't769');
-INSERT INTO `demo` VALUES ('12772', 'name770', 't770');
-INSERT INTO `demo` VALUES ('12773', 'name771', 't771');
-INSERT INTO `demo` VALUES ('12774', 'name772', 't772');
-INSERT INTO `demo` VALUES ('12775', 'name773', 't773');
-INSERT INTO `demo` VALUES ('12776', 'name774', 't774');
-INSERT INTO `demo` VALUES ('12777', 'name775', 't775');
-INSERT INTO `demo` VALUES ('12778', 'name776', 't776');
-INSERT INTO `demo` VALUES ('12779', 'name777', 't777');
-INSERT INTO `demo` VALUES ('12780', 'name778', 't778');
-INSERT INTO `demo` VALUES ('12781', 'name779', 't779');
-INSERT INTO `demo` VALUES ('12782', 'name780', 't780');
-INSERT INTO `demo` VALUES ('12783', 'name781', 't781');
-INSERT INTO `demo` VALUES ('12784', 'name782', 't782');
-INSERT INTO `demo` VALUES ('12785', 'name783', 't783');
-INSERT INTO `demo` VALUES ('12786', 'name784', 't784');
-INSERT INTO `demo` VALUES ('12787', 'name785', 't785');
-INSERT INTO `demo` VALUES ('12788', 'name786', 't786');
-INSERT INTO `demo` VALUES ('12789', 'name787', 't787');
-INSERT INTO `demo` VALUES ('12790', 'name788', 't788');
-INSERT INTO `demo` VALUES ('12791', 'name789', 't789');
-INSERT INTO `demo` VALUES ('12792', 'name790', 't790');
-INSERT INTO `demo` VALUES ('12793', 'name791', 't791');
-INSERT INTO `demo` VALUES ('12794', 'name792', 't792');
-INSERT INTO `demo` VALUES ('12795', 'name793', 't793');
-INSERT INTO `demo` VALUES ('12796', 'name794', 't794');
-INSERT INTO `demo` VALUES ('12797', 'name795', 't795');
-INSERT INTO `demo` VALUES ('12798', 'name796', 't796');
-INSERT INTO `demo` VALUES ('12799', 'name797', 't797');
-INSERT INTO `demo` VALUES ('12800', 'name798', 't798');
-INSERT INTO `demo` VALUES ('12801', 'name799', 't799');
-INSERT INTO `demo` VALUES ('12802', 'name800', 't800');
-INSERT INTO `demo` VALUES ('12803', 'name801', 't801');
-INSERT INTO `demo` VALUES ('12804', 'name802', 't802');
-INSERT INTO `demo` VALUES ('12805', 'name803', 't803');
-INSERT INTO `demo` VALUES ('12806', 'name804', 't804');
-INSERT INTO `demo` VALUES ('12807', 'name805', 't805');
-INSERT INTO `demo` VALUES ('12808', 'name806', 't806');
-INSERT INTO `demo` VALUES ('12809', 'name807', 't807');
-INSERT INTO `demo` VALUES ('12810', 'name808', 't808');
-INSERT INTO `demo` VALUES ('12811', 'name809', 't809');
-INSERT INTO `demo` VALUES ('12812', 'name810', 't810');
-INSERT INTO `demo` VALUES ('12813', 'name811', 't811');
-INSERT INTO `demo` VALUES ('12814', 'name812', 't812');
-INSERT INTO `demo` VALUES ('12815', 'name813', 't813');
-INSERT INTO `demo` VALUES ('12816', 'name814', 't814');
-INSERT INTO `demo` VALUES ('12817', 'name815', 't815');
-INSERT INTO `demo` VALUES ('12818', 'name816', 't816');
-INSERT INTO `demo` VALUES ('12819', 'name817', 't817');
-INSERT INTO `demo` VALUES ('12820', 'name818', 't818');
-INSERT INTO `demo` VALUES ('12821', 'name819', 't819');
-INSERT INTO `demo` VALUES ('12822', 'name820', 't820');
-INSERT INTO `demo` VALUES ('12823', 'name821', 't821');
-INSERT INTO `demo` VALUES ('12824', 'name822', 't822');
-INSERT INTO `demo` VALUES ('12825', 'name823', 't823');
-INSERT INTO `demo` VALUES ('12826', 'name824', 't824');
-INSERT INTO `demo` VALUES ('12827', 'name825', 't825');
-INSERT INTO `demo` VALUES ('12828', 'name826', 't826');
-INSERT INTO `demo` VALUES ('12829', 'name827', 't827');
-INSERT INTO `demo` VALUES ('12830', 'name828', 't828');
-INSERT INTO `demo` VALUES ('12831', 'name829', 't829');
-INSERT INTO `demo` VALUES ('12832', 'name830', 't830');
-INSERT INTO `demo` VALUES ('12833', 'name831', 't831');
-INSERT INTO `demo` VALUES ('12834', 'name832', 't832');
-INSERT INTO `demo` VALUES ('12835', 'name833', 't833');
-INSERT INTO `demo` VALUES ('12836', 'name834', 't834');
-INSERT INTO `demo` VALUES ('12837', 'name835', 't835');
-INSERT INTO `demo` VALUES ('12838', 'name836', 't836');
-INSERT INTO `demo` VALUES ('12839', 'name837', 't837');
-INSERT INTO `demo` VALUES ('12840', 'name838', 't838');
-INSERT INTO `demo` VALUES ('12841', 'name839', 't839');
-INSERT INTO `demo` VALUES ('12842', 'name840', 't840');
-INSERT INTO `demo` VALUES ('12843', 'name841', 't841');
-INSERT INTO `demo` VALUES ('12844', 'name842', 't842');
-INSERT INTO `demo` VALUES ('12845', 'name843', 't843');
-INSERT INTO `demo` VALUES ('12846', 'name844', 't844');
-INSERT INTO `demo` VALUES ('12847', 'name845', 't845');
-INSERT INTO `demo` VALUES ('12848', 'name846', 't846');
-INSERT INTO `demo` VALUES ('12849', 'name847', 't847');
-INSERT INTO `demo` VALUES ('12850', 'name848', 't848');
-INSERT INTO `demo` VALUES ('12851', 'name849', 't849');
-INSERT INTO `demo` VALUES ('12852', 'name850', 't850');
-INSERT INTO `demo` VALUES ('12853', 'name851', 't851');
-INSERT INTO `demo` VALUES ('12854', 'name852', 't852');
-INSERT INTO `demo` VALUES ('12855', 'name853', 't853');
-INSERT INTO `demo` VALUES ('12856', 'name854', 't854');
-INSERT INTO `demo` VALUES ('12857', 'name855', 't855');
-INSERT INTO `demo` VALUES ('12858', 'name856', 't856');
-INSERT INTO `demo` VALUES ('12859', 'name857', 't857');
-INSERT INTO `demo` VALUES ('12860', 'name858', 't858');
-INSERT INTO `demo` VALUES ('12861', 'name859', 't859');
-INSERT INTO `demo` VALUES ('12862', 'name860', 't860');
-INSERT INTO `demo` VALUES ('12863', 'name861', 't861');
-INSERT INTO `demo` VALUES ('12864', 'name862', 't862');
-INSERT INTO `demo` VALUES ('12865', 'name863', 't863');
-INSERT INTO `demo` VALUES ('12866', 'name864', 't864');
-INSERT INTO `demo` VALUES ('12867', 'name865', 't865');
-INSERT INTO `demo` VALUES ('12868', 'name866', 't866');
-INSERT INTO `demo` VALUES ('12869', 'name867', 't867');
-INSERT INTO `demo` VALUES ('12870', 'name868', 't868');
-INSERT INTO `demo` VALUES ('12871', 'name869', 't869');
-INSERT INTO `demo` VALUES ('12872', 'name870', 't870');
-INSERT INTO `demo` VALUES ('12873', 'name871', 't871');
-INSERT INTO `demo` VALUES ('12874', 'name872', 't872');
-INSERT INTO `demo` VALUES ('12875', 'name873', 't873');
-INSERT INTO `demo` VALUES ('12876', 'name874', 't874');
-INSERT INTO `demo` VALUES ('12877', 'name875', 't875');
-INSERT INTO `demo` VALUES ('12878', 'name876', 't876');
-INSERT INTO `demo` VALUES ('12879', 'name877', 't877');
-INSERT INTO `demo` VALUES ('12880', 'name878', 't878');
-INSERT INTO `demo` VALUES ('12881', 'name879', 't879');
-INSERT INTO `demo` VALUES ('12882', 'name880', 't880');
-INSERT INTO `demo` VALUES ('12883', 'name881', 't881');
-INSERT INTO `demo` VALUES ('12884', 'name882', 't882');
-INSERT INTO `demo` VALUES ('12885', 'name883', 't883');
-INSERT INTO `demo` VALUES ('12886', 'name884', 't884');
-INSERT INTO `demo` VALUES ('12887', 'name885', 't885');
-INSERT INTO `demo` VALUES ('12888', 'name886', 't886');
-INSERT INTO `demo` VALUES ('12889', 'name887', 't887');
-INSERT INTO `demo` VALUES ('12890', 'name888', 't888');
-INSERT INTO `demo` VALUES ('12891', 'name889', 't889');
-INSERT INTO `demo` VALUES ('12892', 'name890', 't890');
-INSERT INTO `demo` VALUES ('12893', 'name891', 't891');
-INSERT INTO `demo` VALUES ('12894', 'name892', 't892');
-INSERT INTO `demo` VALUES ('12895', 'name893', 't893');
-INSERT INTO `demo` VALUES ('12896', 'name894', 't894');
-INSERT INTO `demo` VALUES ('12897', 'name895', 't895');
-INSERT INTO `demo` VALUES ('12898', 'name896', 't896');
-INSERT INTO `demo` VALUES ('12899', 'name897', 't897');
-INSERT INTO `demo` VALUES ('12900', 'name898', 't898');
-INSERT INTO `demo` VALUES ('12901', 'name899', 't899');
-INSERT INTO `demo` VALUES ('12902', 'name900', 't900');
-INSERT INTO `demo` VALUES ('12903', 'name901', 't901');
-INSERT INTO `demo` VALUES ('12904', 'name902', 't902');
-INSERT INTO `demo` VALUES ('12905', 'name903', 't903');
-INSERT INTO `demo` VALUES ('12906', 'name904', 't904');
-INSERT INTO `demo` VALUES ('12907', 'name905', 't905');
-INSERT INTO `demo` VALUES ('12908', 'name906', 't906');
-INSERT INTO `demo` VALUES ('12909', 'name907', 't907');
-INSERT INTO `demo` VALUES ('12910', 'name908', 't908');
-INSERT INTO `demo` VALUES ('12911', 'name909', 't909');
-INSERT INTO `demo` VALUES ('12912', 'name910', 't910');
-INSERT INTO `demo` VALUES ('12913', 'name911', 't911');
-INSERT INTO `demo` VALUES ('12914', 'name912', 't912');
-INSERT INTO `demo` VALUES ('12915', 'name913', 't913');
-INSERT INTO `demo` VALUES ('12916', 'name914', 't914');
-INSERT INTO `demo` VALUES ('12917', 'name915', 't915');
-INSERT INTO `demo` VALUES ('12918', 'name916', 't916');
-INSERT INTO `demo` VALUES ('12919', 'name917', 't917');
-INSERT INTO `demo` VALUES ('12920', 'name918', 't918');
-INSERT INTO `demo` VALUES ('12921', 'name919', 't919');
-INSERT INTO `demo` VALUES ('12922', 'name920', 't920');
-INSERT INTO `demo` VALUES ('12923', 'name921', 't921');
-INSERT INTO `demo` VALUES ('12924', 'name922', 't922');
-INSERT INTO `demo` VALUES ('12925', 'name923', 't923');
-INSERT INTO `demo` VALUES ('12926', 'name924', 't924');
-INSERT INTO `demo` VALUES ('12927', 'name925', 't925');
-INSERT INTO `demo` VALUES ('12928', 'name926', 't926');
-INSERT INTO `demo` VALUES ('12929', 'name927', 't927');
-INSERT INTO `demo` VALUES ('12930', 'name928', 't928');
-INSERT INTO `demo` VALUES ('12931', 'name929', 't929');
-INSERT INTO `demo` VALUES ('12932', 'name930', 't930');
-INSERT INTO `demo` VALUES ('12933', 'name931', 't931');
-INSERT INTO `demo` VALUES ('12934', 'name932', 't932');
-INSERT INTO `demo` VALUES ('12935', 'name933', 't933');
-INSERT INTO `demo` VALUES ('12936', 'name934', 't934');
-INSERT INTO `demo` VALUES ('12937', 'name935', 't935');
-INSERT INTO `demo` VALUES ('12938', 'name936', 't936');
-INSERT INTO `demo` VALUES ('12939', 'name937', 't937');
-INSERT INTO `demo` VALUES ('12940', 'name938', 't938');
-INSERT INTO `demo` VALUES ('12941', 'name939', 't939');
-INSERT INTO `demo` VALUES ('12942', 'name940', 't940');
-INSERT INTO `demo` VALUES ('12943', 'name941', 't941');
-INSERT INTO `demo` VALUES ('12944', 'name942', 't942');
-INSERT INTO `demo` VALUES ('12945', 'name943', 't943');
-INSERT INTO `demo` VALUES ('12946', 'name944', 't944');
-INSERT INTO `demo` VALUES ('12947', 'name945', 't945');
-INSERT INTO `demo` VALUES ('12948', 'name946', 't946');
-INSERT INTO `demo` VALUES ('12949', 'name947', 't947');
-INSERT INTO `demo` VALUES ('12950', 'name948', 't948');
-INSERT INTO `demo` VALUES ('12951', 'name949', 't949');
-INSERT INTO `demo` VALUES ('12952', 'name950', 't950');
-INSERT INTO `demo` VALUES ('12953', 'name951', 't951');
-INSERT INTO `demo` VALUES ('12954', 'name952', 't952');
-INSERT INTO `demo` VALUES ('12955', 'name953', 't953');
-INSERT INTO `demo` VALUES ('12956', 'name954', 't954');
-INSERT INTO `demo` VALUES ('12957', 'name955', 't955');
-INSERT INTO `demo` VALUES ('12958', 'name956', 't956');
-INSERT INTO `demo` VALUES ('12959', 'name957', 't957');
-INSERT INTO `demo` VALUES ('12960', 'name958', 't958');
-INSERT INTO `demo` VALUES ('12961', 'name959', 't959');
-INSERT INTO `demo` VALUES ('12962', 'name960', 't960');
-INSERT INTO `demo` VALUES ('12963', 'name961', 't961');
-INSERT INTO `demo` VALUES ('12964', 'name962', 't962');
-INSERT INTO `demo` VALUES ('12965', 'name963', 't963');
-INSERT INTO `demo` VALUES ('12966', 'name964', 't964');
-INSERT INTO `demo` VALUES ('12967', 'name965', 't965');
-INSERT INTO `demo` VALUES ('12968', 'name966', 't966');
-INSERT INTO `demo` VALUES ('12969', 'name967', 't967');
-INSERT INTO `demo` VALUES ('12970', 'name968', 't968');
-INSERT INTO `demo` VALUES ('12971', 'name969', 't969');
-INSERT INTO `demo` VALUES ('12972', 'name970', 't970');
-INSERT INTO `demo` VALUES ('12973', 'name971', 't971');
-INSERT INTO `demo` VALUES ('12974', 'name972', 't972');
-INSERT INTO `demo` VALUES ('12975', 'name973', 't973');
-INSERT INTO `demo` VALUES ('12976', 'name974', 't974');
-INSERT INTO `demo` VALUES ('12977', 'name975', 't975');
-INSERT INTO `demo` VALUES ('12978', 'name976', 't976');
-INSERT INTO `demo` VALUES ('12979', 'name977', 't977');
-INSERT INTO `demo` VALUES ('12980', 'name978', 't978');
-INSERT INTO `demo` VALUES ('12981', 'name979', 't979');
-INSERT INTO `demo` VALUES ('12982', 'name980', 't980');
-INSERT INTO `demo` VALUES ('12983', 'name981', 't981');
-INSERT INTO `demo` VALUES ('12984', 'name982', 't982');
-INSERT INTO `demo` VALUES ('12985', 'name983', 't983');
-INSERT INTO `demo` VALUES ('12986', 'name984', 't984');
-INSERT INTO `demo` VALUES ('12987', 'name985', 't985');
-INSERT INTO `demo` VALUES ('12988', 'name986', 't986');
-INSERT INTO `demo` VALUES ('12989', 'name987', 't987');
-INSERT INTO `demo` VALUES ('12990', 'name988', 't988');
-INSERT INTO `demo` VALUES ('12991', 'name989', 't989');
-INSERT INTO `demo` VALUES ('12992', 'name990', 't990');
-INSERT INTO `demo` VALUES ('12993', 'name991', 't991');
-INSERT INTO `demo` VALUES ('12994', 'name992', 't992');
-INSERT INTO `demo` VALUES ('12995', 'name993', 't993');
-INSERT INTO `demo` VALUES ('12996', 'name994', 't994');
-INSERT INTO `demo` VALUES ('12997', 'name995', 't995');
-INSERT INTO `demo` VALUES ('12998', 'name996', 't996');
-INSERT INTO `demo` VALUES ('12999', 'name997', 't997');
-INSERT INTO `demo` VALUES ('13000', 'name998', 't998');
-INSERT INTO `demo` VALUES ('13001', 'name999', 't999');
+INSERT INTO `sys_admin` VALUES ('1', '2016-10-04 00:03:36', '2016-10-10 21:21:44', '技术部', 'admin@shopxx.net', '', '', null, '2016-10-12 22:25:43', '1', null, '管理员', '21232f297a57a5a743894a0e4a801fc3', 'admin');
+INSERT INTO `sys_admin` VALUES ('3', '2016-10-10 21:11:16', '2016-10-10 21:22:56', '', 'sdfsd@qq.com', '', '', null, '2016-10-10 21:22:56', '0', null, '', '63a9f0ea7bb98050796b649e85481845', 'root');
+INSERT INTO `sys_admin` VALUES ('4', '2016-10-11 22:05:53', '2016-10-11 22:05:54', '测试部门', '328956438@qq.com', '', '', null, null, '0', null, '吴车', '4eef1e1ea34879a2ae60c60815927ed9', 'admin001');
+
+-- ----------------------------
+-- Table structure for `sys_admin_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_admin_role`;
+CREATE TABLE `sys_admin_role` (
+  `admins` bigint(20) NOT NULL,
+  `roles` bigint(20) NOT NULL,
+  PRIMARY KEY (`admins`,`roles`),
+  KEY `FKD291D6053FF548F7` (`roles`),
+  KEY `FKD291D605A022690F` (`admins`),
+  CONSTRAINT `FKD291D6053FF548F7` FOREIGN KEY (`roles`) REFERENCES `sys_role` (`id`),
+  CONSTRAINT `FKD291D605A022690F` FOREIGN KEY (`admins`) REFERENCES `sys_admin` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_admin_role
+-- ----------------------------
+INSERT INTO `sys_admin_role` VALUES ('1', '1');
+INSERT INTO `sys_admin_role` VALUES ('4', '1');
+INSERT INTO `sys_admin_role` VALUES ('3', '2');
+INSERT INTO `sys_admin_role` VALUES ('4', '2');
+INSERT INTO `sys_admin_role` VALUES ('3', '13');
+INSERT INTO `sys_admin_role` VALUES ('4', '13');
 
 -- ----------------------------
 -- Table structure for `sys_area`
@@ -4382,25 +3421,49 @@ CREATE TABLE `sys_dictionaries` (
   `bz` varchar(100) DEFAULT NULL,
   `tbsname` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_dictionaries
 -- ----------------------------
-INSERT INTO `sys_dictionaries` VALUES ('1', '状态', 'status', 'st', '3', '0', null, null);
-INSERT INTO `sys_dictionaries` VALUES ('2', '性别', 'sex', 'xb', '1', '0', null, null);
+INSERT INTO `sys_dictionaries` VALUES ('2', '性别', 'sex', 'sex', '21', '0', null, null);
 INSERT INTO `sys_dictionaries` VALUES ('3', '活动类型', 'activity type', 'atp', '2', '0', null, null);
-INSERT INTO `sys_dictionaries` VALUES ('4', '有效', 'youxiao', '1', '4', '1', 'zt', null);
-INSERT INTO `sys_dictionaries` VALUES ('5', '无效', 'wuxiao', '0', '5', '1', null, null);
 INSERT INTO `sys_dictionaries` VALUES ('6', '资源类型', 'resource type', 'restype', '6', '0', null, null);
 INSERT INTO `sys_dictionaries` VALUES ('7', '菜单', 'menu', 'menu', '7', '6', null, null);
 INSERT INTO `sys_dictionaries` VALUES ('8', '资源', 'resource', 'res', '8', '6', null, null);
 INSERT INTO `sys_dictionaries` VALUES ('9', '账号状态', 'account status', 'acc_st', '9', '0', null, null);
 INSERT INTO `sys_dictionaries` VALUES ('10', '锁定', 'locked', 'locked', '10', '9', null, null);
 INSERT INTO `sys_dictionaries` VALUES ('11', '正常', 'normal', 'normal', '11', '9', null, null);
-INSERT INTO `sys_dictionaries` VALUES ('13', '男', 'men', 'M', '12', '2', null, null);
+INSERT INTO `sys_dictionaries` VALUES ('13', '男', 'men', 'M', '1', '2', null, null);
 INSERT INTO `sys_dictionaries` VALUES ('14', '女', 'women', 'F', '13', '2', null, null);
 INSERT INTO `sys_dictionaries` VALUES ('15', '未知', 'undefined', 'U', '14', '2', null, null);
+INSERT INTO `sys_dictionaries` VALUES ('30', '状态', 'status', 'status', '0', '0', null, null);
+INSERT INTO `sys_dictionaries` VALUES ('31', '有效', 'youxiao', '0', '0', '30', null, null);
+INSERT INTO `sys_dictionaries` VALUES ('32', '无效', 'wuxiao', '1', '0', '30', null, null);
+INSERT INTO `sys_dictionaries` VALUES ('40', '个人活动', 'geren', 'geren', '0', '3', null, null);
+
+-- ----------------------------
+-- Table structure for `sys_files`
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_files`;
+CREATE TABLE `sys_files` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `file_origin_name` varchar(200) DEFAULT NULL,
+  `file_name` varchar(200) DEFAULT NULL,
+  `file_path` varchar(200) DEFAULT NULL,
+  `upload_time` datetime DEFAULT NULL,
+  `file_type` varchar(20) DEFAULT NULL,
+  `file_class` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of sys_files
+-- ----------------------------
+INSERT INTO `sys_files` VALUES ('1', 'a2.jpg', '3150881.jpg', 'D:\\win7usb\\20161008\\3150881.jpg', '2016-10-08 22:02:10', 'JPG', 'HEAD');
+INSERT INTO `sys_files` VALUES ('2', 'a9.jpg', '9615528.jpg', 'D:\\win7usb\\20161008\\9615528.jpg', '2016-10-08 22:02:37', 'JPG', 'HEAD');
+INSERT INTO `sys_files` VALUES ('3', 'a5.jpg', '5921444.jpg', 'D:\\win7usb\\20161008\\5921444.jpg', '2016-10-08 22:04:27', 'JPG', 'UPLOAD');
+INSERT INTO `sys_files` VALUES ('4', 'index.jpg', '163505176.jpg', 'D:\\win7usb\\20161008\\163505176.jpg', '2016-10-08 22:04:51', 'JPG', 'UPLOAD');
 
 -- ----------------------------
 -- Table structure for `sys_log`
@@ -4754,124 +3817,94 @@ CREATE TABLE `sys_message` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `sys_organization`
--- ----------------------------
-DROP TABLE IF EXISTS `sys_organization`;
-CREATE TABLE `sys_organization` (
-  `id` bigint(19) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL,
-  `address` varchar(100) DEFAULT NULL,
-  `code` varchar(64) NOT NULL,
-  `icon` varchar(32) DEFAULT NULL,
-  `pid` bigint(19) DEFAULT NULL,
-  `seq` tinyint(2) NOT NULL DEFAULT '0',
-  `createdate` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='组织机构';
-
--- ----------------------------
--- Records of sys_organization
--- ----------------------------
-INSERT INTO `sys_organization` VALUES ('1', '总经办', '', '01', 'glyphicon-heart', null, '0', '2014-02-19 01:00:00');
-INSERT INTO `sys_organization` VALUES ('3', '技术部', '', '02', 'glyphicon-heart', null, '1', '2015-10-01 13:10:42');
-INSERT INTO `sys_organization` VALUES ('5', '产品部', '', '03', 'glyphicon-heart', null, '2', '2015-12-06 12:15:30');
-INSERT INTO `sys_organization` VALUES ('6', '测试组', '', '04', 'glyphicon-heart', '3', '0', '2015-12-06 13:12:18');
-
--- ----------------------------
--- Table structure for `sys_resource`
--- ----------------------------
-DROP TABLE IF EXISTS `sys_resource`;
-CREATE TABLE `sys_resource` (
-  `id` bigint(19) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL,
-  `url` varchar(100) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `icon` varchar(32) DEFAULT NULL,
-  `pid` bigint(19) DEFAULT NULL,
-  `seq` tinyint(2) NOT NULL DEFAULT '0',
-  `status` varchar(20) NOT NULL DEFAULT '0',
-  `resourcetype` varchar(20) NOT NULL DEFAULT '0',
-  `createdate` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8 COMMENT='资源';
-
--- ----------------------------
--- Records of sys_resource
--- ----------------------------
-INSERT INTO `sys_resource` VALUES ('1', '系统管理', '', '系统管理', 'glyphicon-heart', null, '0', '0', 'menu', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('11', '资源管理', '/resource/manager', '资源管理', 'glyphicon-heart', '1', '1', '0', 'menu', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('12', '角色管理', '/role/manager', '角色管理', 'glyphicon-heart', '1', '2', '0', 'menu', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('13', '用户管理', '/user/manager', '用户管理', 'glyphicon-heart', '1', '3', '0', 'menu', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('14', '部门管理', '/organization/manager', '部门管理', 'glyphicon-heart', '1', '4', '0', 'menu', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('111', '列表', '/resource/treeGrid', '资源列表', 'glyphicon-heart', '11', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('112', '添加', '/resource/add', '资源添加', 'glyphicon-heart', '11', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('113', '编辑', '/resource/edit', '资源编辑', 'glyphicon-heart', '11', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('114', '删除', '/resource/delete', '资源删除', 'glyphicon-heart', '11', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('121', '列表', '/role/dataGrid', '角色列表', 'glyphicon-heart', '12', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('122', '添加', '/role/add', '角色添加', 'glyphicon-heart', '12', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('123', '编辑', '/role/edit', '角色编辑', 'glyphicon-heart', '12', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('124', '删除', '/role/delete', '角色删除', 'glyphicon-heart', '12', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('125', '授权', '/role/grant', '角色授权', 'glyphicon-heart', '12', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('131', '列表', '/user/dataGrid', '用户列表', 'glyphicon-heart', '13', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('132', '添加', '/user/add', '用户添加', 'glyphicon-heart', '13', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('133', '编辑', '/user/edit', '用户编辑', 'glyphicon-heart', '13', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('134', '删除', '/user/delete', '用户删除', 'glyphicon-heart', '13', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('141', '列表', '/organization/treeGrid', '用户列表', 'glyphicon-heart', '14', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('142', '添加', '/organization/add', '部门添加', 'glyphicon-heart', '14', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('143', '编辑', '/organization/edit', '部门编辑', 'glyphicon-heart', '14', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('144', '删除', '/organization/delete', '部门删除', 'glyphicon-heart', '14', '0', '0', 'res', '2014-02-19 01:00:00');
-INSERT INTO `sys_resource` VALUES ('221', '日志管理', '/sysLog/manager', null, 'glyphicon-heart', null, '2', '0', 'menu', '2015-12-01 11:44:20');
-INSERT INTO `sys_resource` VALUES ('222', '视频教程', '', null, 'glyphicon-heart', null, '1', '0', 'menu', '2015-12-06 12:40:42');
-INSERT INTO `sys_resource` VALUES ('223', '官方网站', 'http://www.dreamlu.net/', null, 'glyphicon-heart', '222', '0', '0', '0', '2015-12-06 12:42:42');
-INSERT INTO `sys_resource` VALUES ('224', 'jfinal视频', 'http://blog.dreamlu.net/blog/79', null, 'glyphicon-heart', '222', '1', '0', '0', '2015-12-06 12:45:28');
-INSERT INTO `sys_resource` VALUES ('226', '修改密码', '/user/editPwdPage', null, 'glyphicon-heart', null, '3', '0', '1', '2015-12-07 20:23:06');
-
--- ----------------------------
 -- Table structure for `sys_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
-  `id` bigint(19) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL,
-  `seq` tinyint(2) NOT NULL DEFAULT '0',
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_date` datetime NOT NULL,
+  `modify_date` datetime NOT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT '0',
-  `resources` varchar(255) DEFAULT NULL,
+  `is_system` bit(1) NOT NULL,
+  `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='角色';
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES ('1', '超级管理员', '0', '超级管理员', '0', null);
-INSERT INTO `sys_role` VALUES ('2', '技术部经理', '0', '技术部经理', '0', null);
-INSERT INTO `sys_role` VALUES ('7', '产品部经理', '0', '产品部经理', '0', null);
-INSERT INTO `sys_role` VALUES ('8', '测试账户', '0', '测试账户', '0', null);
+INSERT INTO `sys_role` VALUES ('1', '2016-10-04 00:02:44', '2016-10-04 00:02:44', '拥有管理后台最高权限', '', '超级管理员');
+INSERT INTO `sys_role` VALUES ('2', '2016-10-10 21:07:02', '2016-10-12 00:26:02', 'test', '', '测试角色');
+INSERT INTO `sys_role` VALUES ('13', '2016-10-12 16:37:59', '2016-10-12 16:37:59', 'aab', '', 'tests');
 
 -- ----------------------------
--- Table structure for `sys_user`
+-- Table structure for `sys_role_authority`
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_user`;
-CREATE TABLE `sys_user` (
-  `id` bigint(19) NOT NULL AUTO_INCREMENT,
-  `loginname` varchar(64) NOT NULL,
-  `name` varchar(64) NOT NULL,
-  `password` varchar(64) NOT NULL,
-  `sex` varchar(10) NOT NULL DEFAULT '0',
-  `age` tinyint(2) DEFAULT '0',
-  `usertype` varchar(20) NOT NULL DEFAULT '0',
-  `status` varchar(10) NOT NULL DEFAULT '0',
-  `organization_id` int(11) NOT NULL DEFAULT '0',
-  `createdate` datetime NOT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `roles` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='用户';
+DROP TABLE IF EXISTS `sys_role_authority`;
+CREATE TABLE `sys_role_authority` (
+  `role` bigint(20) NOT NULL,
+  `authorities` varchar(255) DEFAULT NULL,
+  KEY `FKE06165D939B03AB0` (`role`),
+  CONSTRAINT `FKE06165D939B03AB0` FOREIGN KEY (`role`) REFERENCES `sys_role` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of sys_user
+-- Records of sys_role_authority
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '098f6bcd4621d373cade4e832627b4f6', 'M', '25', '0', 'locked', '1', '2015-12-06 13:14:05', '18707173376', null);
-INSERT INTO `sys_user` VALUES ('13', 'snoopy', 'snoopy', '098f6bcd4621d373cade4e832627b4f6', 'M', '25', '1', 'locked', '3', '2015-10-01 13:12:07', '18707173376', null);
-INSERT INTO `sys_user` VALUES ('14', 'dreamlu', 'dreamlu', '098f6bcd4621d373cade4e832627b4f6', 'F', '25', '1', 'normal', '5', '2015-10-11 23:12:58', '18707173376', null);
-INSERT INTO `sys_user` VALUES ('15', 'test', 'test', '098f6bcd4621d373cade4e832627b4f6', 'F', '25', '1', 'normal', '6', '2015-12-06 13:13:03', '18707173376', null);
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:product');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:productCategory');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:parameterGroup');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:attribute');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:specification');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:brand');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:productNotify');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:order');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:print');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:payment');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:refunds');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:shipping');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:returns');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:deliveryCenter');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:deliveryTemplate');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:member');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:memberRank');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:memberAttribute');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:review');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:consultation');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:navigation');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:article');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:articleCategory');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:tag');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:friendLink');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:adPosition');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:ad');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:template');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:cache');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:static');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:index');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:promotion');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:coupon');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:seo');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:sitemap');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:statistics');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:sales');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:salesRanking');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:purchaseRanking');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:deposit');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:setting');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:area');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:paymentMethod');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:shippingMethod');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:deliveryCorp');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:paymentPlugin');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:storagePlugin');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:admin');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:role');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:message');
+INSERT INTO `sys_role_authority` VALUES ('1', 'admin:log');
+INSERT INTO `sys_role_authority` VALUES ('2', 'admin:user');
+INSERT INTO `sys_role_authority` VALUES ('2', 'admin:news');
+INSERT INTO `sys_role_authority` VALUES ('2', 'admin:test');
+INSERT INTO `sys_role_authority` VALUES ('13', 'admin:user');
+INSERT INTO `sys_role_authority` VALUES ('13', 'admin:news');
+INSERT INTO `sys_role_authority` VALUES ('13', 'admin:test');

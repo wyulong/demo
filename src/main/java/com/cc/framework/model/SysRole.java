@@ -1,5 +1,9 @@
 package com.cc.framework.model;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Table(name = "sys_role")
@@ -8,17 +12,42 @@ public class SysRole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Column(name = "create_date")
+    private Date createDate;
 
-    private Byte seq;
+    @Column(name = "modify_date")
+    private Date modifyDate;
 
     private String description;
 
-    private Byte status;
+    @Column(name = "is_system")
+    private Boolean isSystem;
 
-    private String resources;
+    private String name;
+    
+    @Transient
+    private boolean selected;
+    
+    public boolean isSelected() {
+		return selected;
+	}
 
-    /**
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
+
+	@Transient
+    private List<SysRoleAuthority> authList = new ArrayList<SysRoleAuthority>();
+
+    public List<SysRoleAuthority> getAuthList() {
+		return authList;
+	}
+
+	public void setAuthList(List<SysRoleAuthority> authList) {
+		this.authList = authList;
+	}
+
+	/**
      * @return id
      */
     public Long getId() {
@@ -33,31 +62,31 @@ public class SysRole {
     }
 
     /**
-     * @return name
+     * @return create_date
      */
-    public String getName() {
-        return name;
+    public Date getCreateDate() {
+        return createDate;
     }
 
     /**
-     * @param name
+     * @param createDate
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     /**
-     * @return seq
+     * @return modify_date
      */
-    public Byte getSeq() {
-        return seq;
+    public Date getModifyDate() {
+        return modifyDate;
     }
 
     /**
-     * @param seq
+     * @param modifyDate
      */
-    public void setSeq(Byte seq) {
-        this.seq = seq;
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
     }
 
     /**
@@ -75,30 +104,30 @@ public class SysRole {
     }
 
     /**
-     * @return status
+     * @return is_system
      */
-    public Byte getStatus() {
-        return status;
+    public Boolean getIsSystem() {
+        return isSystem;
     }
 
     /**
-     * @param status
+     * @param isSystem
      */
-    public void setStatus(Byte status) {
-        this.status = status;
+    public void setIsSystem(Boolean isSystem) {
+        this.isSystem = isSystem;
     }
 
     /**
-     * @return resources
+     * @return name
      */
-    public String getResources() {
-        return resources;
+    public String getName() {
+        return name;
     }
 
     /**
-     * @param resources
+     * @param name
      */
-    public void setResources(String resources) {
-        this.resources = resources;
+    public void setName(String name) {
+        this.name = name;
     }
 }

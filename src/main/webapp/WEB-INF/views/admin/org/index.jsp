@@ -18,36 +18,39 @@
 <link
 	href="${pageContext.request.contextPath}/static/css/style.min862f.css?v=4.1.0"
 	rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/static/css/plugins/jsTree/style.min.css" rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/static/css/plugins/ztree/metroStyle/metroStyle.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/static/css/plugins/bootstrap-table/bootstrap-table.min.css"
+	rel="stylesheet">
 </head>
 
 <body class="gray-bg" style="overflow: hidden">
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title navy-bg">
 						<h5>组织机构列表</h5>
 						<div class="ibox-tools">
-							<button class="collapse-link btn btn-xs btn-warning">新增</button>
-							<button class="collapse-link btn btn-xs btn-danger">编辑</button>
-							<button class="collapse-link btn btn-xs btn-success">删除</button>
+							<!-- <button class="collapse-link btn btn-xs btn-warning" id="add">新增</button>
+							<button class="collapse-link btn btn-xs btn-danger" id="edit">编辑</button>
+							<button class="collapse-link btn btn-xs btn-success" id="delete">删除</button> -->
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i></a>
 						</div>
 					</div>
 					<div class="ibox-content">
 						<div class="wrapper">
-						    <div id="jstree1">
-                             
-                        </div>
+							 <ul id="jstree1" class="ztree"></ul>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-8">
+			<!-- <div class="col-md-6">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title navy-bg">
-						<h5>组织机构管理</h5>
+						<h5>用户管理——目前先放一个表格</h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
 							</a>
@@ -57,24 +60,24 @@
 						<div class="example-wrap">
 							<div class="example">
 								<div class="btn-group hidden-xs" id="toolbar" role="group">
-						<button type="button" class="btn btn-outline btn-default">
-							<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-						</button>
-						<button type="button" class="btn btn-outline btn-default">
-							<i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
-						</button>
-						<button type="button" class="btn btn-outline btn-default">
-							<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-						</button>
-					</div>
-								 <table id="listTable" data-click-to-select="true" />
+									<button type="button" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-outline btn-default">
+										<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+									</button>
+								</div>
+								<table id="listTable" data-click-to-select="true" />
 								</table>
 							</div>
 						</div>
 					</div>
 				</div>
-			
-			</div>
+
+			</div> -->
 		</div>
 	</div>
 	<script
@@ -93,95 +96,97 @@
 		src="${pageContext.request.contextPath}/static/js/contabs.min.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/static/js/plugins/pace/pace.min.js"></script>
-		<script src="${pageContext.request.contextPath}/static/js/plugins/jsTree/jstree.min.js"></script>
-		
-		<script type="text/javascript">
-		
-		var ay_mssys = 
-		    [
-		        {
-			        "id": "1",
-			        "text": "民事案由(2008版)",
-			        "state": {
-					            "opened": true,          //展示第一个层级下面的node
-					            "disabled": true         //该根节点不可点击
-			       			 },
-			        "children": 
-			        			[
-						        	{
-						            "id": "2",
-						            "text": "人格权纠纷",
-						            "children": 
-						            			[
-									            	{
-										                "id": "3",
-										                "text": "人格权纠纷",
-										                "children": [
-										                	{
-											                    "id": "4",
-											                    "text": "生命权、健康权、身体权纠纷",
-											                    "children": 
-											                    			[
-											                    				{
-															                        "id": "5",
-															                        "text": "道路交通事故人身损害赔偿纠纷"
-														                   		 },
-														                   		{
-																                        "id": "15",
-																                        "text": "道路交通赔偿纠纷"
-															                   		 }
-														                   	]
-														    }
-														 ]
-													}
-												]
-									},
-									{
-							            "id": "7",
-							            "text": "人格权纠纷",
-							            "children": 
-							            			[
-										            	{
-											                "id": "8",
-											                "text": "人格权纠纷",
-											                "children": [
-											                	{
-												                    "id": "9",
-												                    "text": "生命权、健康权、身体权纠纷",
-												                    "children": 
-												                    			[
-												                    				{
-																                        "id": "10",
-																                        "text": "道路交通事故人身损害赔偿纠纷"
-															                   		 }
-															                   	]
-															    }
-															 ]
-														}
-													]
-										}
-								]
-					}
-			];
-		
-		$(function(){
-			$("#jstree1").jstree({
-	            'core' : {
-	                "multiple" : false,
-	                "checkbox" : {
-	                    "keep_selected_style" : false
-	                  },
-	                'data' : ay_mssys,
-	                'dblclick_toggle': false          //禁用tree的双击展开
-	            },
-	            "plugins" : ["checkbox"] 
+	<script
+		src="${pageContext.request.contextPath}/static/js/plugins/ztree/jquery.ztree.all.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/static/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/static/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+
+	<script type="text/javascript">
+		var setting = {
+			async: {
+				enable: true,
+				url:"${pageContext.request.contextPath}/admin/org/tree.json",
+				autoParam:["id", "name=n", "level=lv"],
+				otherParam:{"otherParam":"zTreeAsyncTest"},
+				dataFilter: filter
+			},
+			view: {expandSpeed:"",
+				addHoverDom: addHoverDom,
+				removeHoverDom: removeHoverDom,
+				selectedMulti: false
+			},
+			edit: {
+				enable: true
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			},
+			callback: {
+				beforeRemove: beforeRemove,
+				beforeRename: beforeRename
+			}
+		};
+
+		function filter(treeId, parentNode, childNodes) {
+			if (!childNodes) return null;
+			for (var i=0, l=childNodes.length; i<l; i++) {
+				childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');
+			}
+			return childNodes;
+		}
+		function beforeRemove(treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("jstree1");
+			zTree.selectNode(treeNode);
+			return confirm("确认删除 节点 -- " + treeNode.name + " 吗？");
+		}		
+		function beforeRename(treeId, treeNode, newName) {
+			if (newName.length == 0) {
+				setTimeout(function() {
+					var zTree = $.fn.zTree.getZTreeObj("jstree1");
+					zTree.cancelEditName();
+					alert("节点名称不能为空.");
+				}, 0);
+				return false;
+			}
+			return true;
+		}
+
+		var newCount = 1;
+		function addHoverDom(treeId, treeNode) {
+			var sObj = $("#" + treeNode.tId + "_span");
+			if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
+			var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+				+ "' title='add node' onfocus='this.blur();'></span>";
+			sObj.after(addStr);
+			var btn = $("#addBtn_"+treeNode.tId);
+			if (btn) btn.bind("click", function(){
+				var zTree = $.fn.zTree.getZTreeObj("jstree1");
+				zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:"new node" + (newCount++)});
+				return false;
 			});
-	//core：整个jstree显示的核心，里面包括多种项配置：
-	//data： 这里是使用json格式的数据；还可以使用html或者ajax请求等
-	//plugins： 这个jstree引用了哪些插件
-	//multiple : false  不可多选
-			
+		};
+		function removeHoverDom(treeId, treeNode) {
+			$("#addBtn_"+treeNode.tId).unbind().remove();
+		};
+
+		$(document).ready(function(){
+			$.fn.zTree.init($("#jstree1"), setting);
+			//$("#add").bind("click", add);
+			//$("#edit").bind("click", remove);
 		});
-		</script>
+		
+		function add(e) {
+			var zTree = $.fn.zTree.getZTreeObj("jstree1");
+			var isParent = e.data.isParent;
+			var nodes = zTree.getSelectedNodes();
+			alert(e.data);
+			treeNode = nodes[0];
+			addHoverDom("jstree1", treeNode);
+		};
+	</script>
 </body>
 </html>

@@ -30,9 +30,9 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="ibox float-e-margins">
-					<div class="ibox-title">
+					<div class="ibox-title navy-bg">
 						<h5>
-							用户管理 <small>新增管理员</small>
+							 新增管理员
 						</h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>

@@ -31,6 +31,13 @@
             </list>
         </property>
     </bean>
+    
+    <bean id="imageCaptchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
+		<property name="captchaEngine">
+			<bean class="com.cc.framework.util.CaptchaEngine" />
+		</property>
+		<property name="minGuarantedStorageDelayInSeconds" value="3600" />
+	</bean>
 
     <!-- dataSource 配置 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
@@ -138,18 +145,7 @@
         <aop:pointcut id="serviceMethods" expression="execution(* com.cc.framework.service..*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
     </aop:config>
-    <bean class="com.cc.framework.aop.DataDictionaryHandleAOP" id="dictAspect"></bean>  
-    <!-- aop配置 -->  
-    <aop:config>  
-        <!-- 切点 -->  
-        <aop:pointcut expression="execution(public * com.cc.framework.service.*.*(..))" id="aop"/>  
-        <!-- 切面 : ref 的值是 切面类的id-->  
-        <aop:aspect id="aspect" ref="dictAspect">  
-            <!-- 前置方法 : pointcut-ref 的值是 切点的id -->  
-            <!-- <aop:before method="afterMethod" pointcut-ref="aop"/> -->
-            <aop:after-returning method="afterRunningMethod" returning="result" pointcut-ref="aop"/>
-        </aop:aspect>  
-    </aop:config>  
+     
     
     <!-- 配置使Spring采用CGLIB代理  proxy-target-class="true" -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
@@ -160,7 +156,7 @@
     <!-- Cache配置 -->
     <cache:annotation-driven cache-manager="cacheManager"/>
     <bean id="ehCacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
-          p:configLocation="classpath:spring/ehcache.xml"/>
+          p:configLocation="classpath:ehcache.xml"/>
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"
           p:cacheManager-ref="ehCacheManagerFactory"/>
 </beans>

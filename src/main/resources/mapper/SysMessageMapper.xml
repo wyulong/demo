@@ -20,4 +20,5 @@
     <result column="sender" jdbcType="BIGINT" property="sender" />
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
+  
 </mapper>

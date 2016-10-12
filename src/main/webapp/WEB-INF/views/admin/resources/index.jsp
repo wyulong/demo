@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>系统资源管理</title>
+<title>系统权限管理</title>
 <meta name="keywords" content=" ">
 <meta name="description" content="">
 <link rel="shortcut icon" href="favicon.ico">
@@ -31,7 +31,7 @@
 		<div class="ibox float-e-margins">
 					<div class="ibox-title navy-bg">
 						<h5>
-							资源管理
+							权限管理
 						</h5>
 						<div class="ibox-tools">
 							<a class="collapse-link"> <i class="fa fa-chevron-up"></i>
@@ -46,7 +46,7 @@
 					<!-- <div class="alert alert-success" id="examplebtTableEventsResult"
 						role="alert">事件结果</div> -->
 					<div class="btn-group hidden-xs" id="toolbar" role="group">
-						<button type="button" class="btn btn-outline btn-default">
+						<button type="button" class="btn btn-outline btn-default" id="add">
 							<i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
 						</button>
 						<button type="button" class="btn btn-outline btn-default">
@@ -121,9 +121,13 @@
 			//2.初始化Button的点击事件
 			var oButtonInit = new ButtonInit();
 			oButtonInit.Init();
-
 		});
-
+		
+		$('#add').click(function(){
+			window.location.href="${pageContext.request.contextPath}/admin/resources/add";
+			return;
+		});
+		
 		var TableInit = function() {
 			var oTableInit = new Object();
 			//初始化Table
@@ -139,6 +143,7 @@
 									pagination : true, //是否显示分页（*）
 									sortable : false, //是否启用排序
 									sortOrder : "asc", //排序方式
+									responseHandler:responseHandler,
 									queryParams : oTableInit.queryParams,//传递参数（*）
 									sidePagination : "server", //分页方式：client客户端分页，server服务端分页（*）
 									pageNumber : 1, //初始化加载第一页，默认第一页
@@ -165,10 +170,10 @@
 										title : '名称'
 									}, {
 										field : 'resourcetype',
-										title : '资源类型'
+										title : '权限类型'
 									}, {
 										field : 'url',
-										title : 'url地址'
+										title : '权限编码'
 									}, {
 										field : 'seq',
 										title : '排序'
