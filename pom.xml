@@ -50,6 +50,11 @@
 	
 	
 	<dependencies>
+		<dependency>
+		    <groupId>standard</groupId>
+		    <artifactId>standard</artifactId>
+		    <version>1.2</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.octo.captcha/jcaptcha -->
 		<dependency>
 		    <groupId>com.octo.captcha</groupId>
